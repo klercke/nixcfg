@@ -27,76 +27,41 @@
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
-    #nnn # terminal file manager
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-
-    # utils
-    ripgrep # recursively searches directories for a regex pattern
-    jq # A lightweight and flexible command-line JSON processor
-    yq-go # yaml processor https://github.com/mikefarah/yq
-    eza # A modern replacement for ‘ls’
+    # General utilities
+    jq # JSON processor
     fzf # A command-line fuzzy finder
+    which # Shows the path a command will evaluate to
+    tree # Displays a file tree. I probably don't need this with eza --tree?
+    gnused # sed command
+    gnutar # tar command
+    gawk # awk command
+    gnupg # GPG
+    iotop # IO monitor
 
-    # networking tools
+    # Cool kid utilities
+    ripgrep # Faster grep/find alternative
+    eza # A modern replacement for ls
+    bottom # System monitor
+    glow # Markdown renderer
+    bat # cat replacement
+
+    # Networking
     mtr # A network diagnostic tool
-    iperf3
-    dnsutils  # `dig` + `nslookup`
-    ldns # replacement of `dig`, it provide the command `drill`
-    aria2 # A lightweight multi-protocol & multi-source command-line download utility
-    socat # replacement of openbsd-netcat
-    nmap # A utility for network discovery and security auditing
-    ipcalc  # it is a calculator for the IPv4/v6 addresses
+    iperf3 # Speedtest tool
+    dnsutils  # Contains dig & nslookup
+    ldns # Contains drill, a replacement for dig
+    ipcalc  # IP address calculator
 
-    # misc
-    cowsay
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-    bottom
+    # System troubleshooting tools
+    pciutils # lspci command
+    usbutils # lsusb command
 
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
+    # Gaming
+    lutris # Game launcher
 
-    # productivity
-    hugo # static site generator
-    glow # markdown previewer in terminal
-
-    btop  # replacement of htop/nmon
-    iotop # io monitoring
-    iftop # network monitoring
-
-    # system call monitoring
-    strace # system call monitoring
-    ltrace # library call monitoring
-    lsof # list open files
-
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-
-    # gaming
-    lutris
-
-    # rice
-    cbonsai
-    neofetch
-    bat
+    # Rice
+    cbonsai # Generates bonsai trees
+    neofetch # NixOS btw
   ];
 
   # basic configuration of git, please change to your own
