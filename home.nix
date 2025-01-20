@@ -104,6 +104,10 @@
     enable = true;
     userName = "Konnor Klercke";
     userEmail = "klercke@protonmail.com";
+    signing = {
+      signByDefault = true;
+      key = null; # Let the GPG agent figure out which key to use
+    };
     extraConfig = {
       init.defaultBranch = "main";
     };
