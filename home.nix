@@ -106,7 +106,7 @@
       eval "$(starship init zsh)"
 
       # Zoxide
-      eval "$(zoxide init zsh --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd)"
+      eval "$(zoxide init zsh --cmd cd)"
     '';
   };
 
