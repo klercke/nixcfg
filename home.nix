@@ -44,6 +44,7 @@
     bottom # System monitor
     glow # Markdown renderer
     bat # cat replacement
+    zoxide # cd replacement. Must-have
 
     # Networking
     mtr # A network diagnostic tool
@@ -103,6 +104,9 @@
     initExtra = ''
       # Starship
       eval "$(starship init zsh)"
+
+      # Zoxide
+      eval "$(zoxide init zsh --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd --cmd cd)"
     '';
   };
 
