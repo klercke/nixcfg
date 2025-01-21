@@ -9,8 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # Include the Yubikey GPG configuration
-      ./yubikey-gpg.nix
+      # Include modules
+      ../../modules/system.nix
+      ../../modules/yubikey-gpg.nix
     ];
 
   # Bootloader.
@@ -22,11 +23,6 @@
 
   boot.initrd.luks.devices."luks-2404762d-fc4e-452c-b4a3-ee754fc787dc".device = "/dev/disk/by-uuid/2404762d-fc4e-452c-b4a3-ee754fc787dc";
   networking.hostName = "thor"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -84,17 +80,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.d0c = {
-    isNormalUser = true;
-    description = "d0c_z3r0d4y";
-    extraGroups = [ "networkmanager" "wheel" ];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-      zsh
-      steam
-    ];
-  };
 
   # Install firefox.
   programs.firefox.enable = true;

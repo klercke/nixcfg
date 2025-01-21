@@ -1,5 +1,5 @@
 {
-  description = "A simple NixOS flake";
+  description = "d0c_z3r0d4y's NixOs Config";
 
   inputs = {
     # NixOS official package source, using the nixos-24.11 branch here
@@ -17,26 +17,33 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
-    nixosConfigurations.thor = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./configuration.nix
+    nixosConfigurations = {
+      thor = let
+        username = "d0c";
+        specialArgs = { inherit username; };
+      in
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [
+              # Import the old/default configuration.nix for legacy config
+              ./hosts/thor
+              ./users/${username}/nixos.nix
 
-        # Make home-manager a module of NixOS
-        home-manager.nixosModules.home-manager {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true; # WHY does this spell "packages" but the line above doesn't???
-          
-          home-manager.users.d0c = import ./home.nix;
+              # Make home-manager a module of NixOS
+              home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true; # WHY does this spell "packages" but the line above doesn't???
+                
+                home-manager.users.${username} = import ./home/core.nix;
 
-          home-manager.extraSpecialArgs = {
-            inherit inputs;
-            };
-        }
-      ];
+                home-manager.extraSpecialArgs = {
+                  inherit inputs;
+                };
+              }
+            ];
+          };
+      };
+
     };
-  };
-}
+  }
