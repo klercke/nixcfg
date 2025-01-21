@@ -72,7 +72,7 @@
     cmatrix # Matrix rain effect
   ];
 
-  # basic configuration of git, please change to your own
+  # Git configuration
   programs.git = {
     enable = true;
     userName = "Konnor Klercke";
@@ -88,6 +88,7 @@
       delta.navigate = true;
       delta.side-by-side = true;
       delta.line-numbers = true;
+      delta.hyperlinks = true;
       merge.conflictstyle = "zdiff3";
     };
   };
