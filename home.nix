@@ -37,6 +37,8 @@
     gawk # awk command
     gnupg # GPG
     iotop # IO monitor
+    xplr # File manager
+    hyperfine # Command benchmarking tool
 
     # Cool kid utilities
     ripgrep # Faster grep/find alternative
@@ -45,6 +47,10 @@
     glow # Markdown renderer
     bat # cat replacement
     zoxide # cd replacement. Must-have
+    tldr # man replacement
+    delta # diff replacement
+    dust # du replacement (much better!)
+    procs # ps replacement
 
     # Networking
     mtr # A network diagnostic tool
@@ -63,6 +69,7 @@
     # Rice
     cbonsai # Generates bonsai trees
     neofetch # NixOS btw
+    cmatrix # Matrix rain effect
   ];
 
   # basic configuration of git, please change to your own
@@ -76,6 +83,12 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+      core.pager = "delta";
+      interactive.diffFilter = "delta --color-only";
+      delta.navigate = true;
+      delta.side-by-side = true;
+      delta.line-numbers = true;
+      merge.conflictstyle = "zdiff3";
     };
   };
 
