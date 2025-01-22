@@ -1,12 +1,8 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, inputs, lib, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
       # Include modules
@@ -14,25 +10,29 @@
       ../../modules/yubikey-gpg.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+  };
 
-  # Kernel options
+  # Disk encryption
+  boot.initrd.luks.devices."luks-2404762d-fc4e-452c-b4a3-ee754fc787dc".device = "/dev/disk/by-uuid/2404762d-fc4e-452c-b4a3-ee754fc787dc";
+
+  # Use Zen kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  boot.initrd.luks.devices."luks-2404762d-fc4e-452c-b4a3-ee754fc787dc".device = "/dev/disk/by-uuid/2404762d-fc4e-452c-b4a3-ee754fc787dc";
-  networking.hostName = "thor"; # Define your hostname.
+  # Set hostname
+  networking.hostName = "thor";
 
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
+  # Timezone
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
+  # Locale
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -45,7 +45,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
+  # Enable X11
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
