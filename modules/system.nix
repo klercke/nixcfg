@@ -13,6 +13,7 @@
     gcc
     neovim
     cargo
+    just
   ];
 
   # Install firefox.
