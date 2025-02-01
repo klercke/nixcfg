@@ -1,5 +1,4 @@
-{ 
-  config,
+{ config,
   pkgs,
   inputs,
   lib,
@@ -61,12 +60,7 @@
     restart = true;
     settings = {
       default_session = {
-        command = ''
-          XDG_RUNTIME_DIR=/run/user/$(id -u) \
-          WLR_BACKENDS=drm \
-          WLR_LIBINPUT_NO_DEVICES=1 \
-          cage -s -- ${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland
-        '';
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --greeting \"I am the master of my fate, I am the captain of my soul\" --remember --remember-user-session";
         user = "greeter";
       };
     };

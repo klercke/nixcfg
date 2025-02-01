@@ -15,7 +15,7 @@
     cargo
     just
     lm_sensors
-    cage # Kiosk WM used for greeter
+    cage
   ];
 
   # Install firefox.
