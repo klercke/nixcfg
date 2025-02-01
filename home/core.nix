@@ -1,29 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
+
   home.username = "d0c";
   home.homeDirectory = "/home/d0c";
-
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
-
-  # set cursor size and dpi for 4k monitor
-  #xresources.properties = {
-  #  "Xcursor.size" = 16;
-  #  "Xft.dpi" = 172;
-  #};
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
@@ -42,7 +23,9 @@
 
     # Desktop environment
     hyprland
-    kitty
+    hyprsunset
+    hypridle
+    hyprlock
 
     # Cool kid utilities
     ripgrep # Faster grep/find alternative
@@ -62,6 +45,7 @@
     dnsutils  # Contains dig & nslookup
     ldns # Contains drill, a replacement for dig
     ipcalc  # IP address calculator
+    bandwhich # Like top for networking
 
     # System troubleshooting tools
     pciutils # lspci command
@@ -138,16 +122,87 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
+      "$terminal" = "ghostty";
+
       monitor = [
         "DP-2, 3440x1440@144, auto, 1"
         "HDMI-A-1, 1920x1080@75, auto-left, 1, transform, 1"
       ];
+
       "$mod" = "SUPER";
       bind = [
         "$mod, F, exec, firefox"
         "$mod, M, exit, "
-        "$mod, RETURN, exec, ghostty"
+        "$mod, RETURN, exec, $terminal"
       ];
+    };
+  };
+
+  # Hyprpanel
+  programs.hyprpanel = {
+    enable = true;
+
+    # Automatically start with hyprland
+    hyprland.enable = true;
+
+    # Appearance
+    theme = "gruvbox";
+
+    # Layout
+    layout = {
+      "bar.layouts" = {
+        "0" = {
+          left = [ "dashboard" "hypridle" "hyprsunset" "workspaces" "windowtitle" ];
+          middle = [ "clock" ];
+          right = [ "cpu" "ram" "storage" "netstat" "volume" "systray" "notifications" ];
+        };
+        "1" = {
+          left = [];
+          middle = [];
+          right = [];
+        };
+      };
+    };
+
+    settings = {
+      # Clock
+      bar.clock = {
+        format = "%Y-%m-%d %H:%M";
+      };
+
+      # Netstat
+      bar.customModules.netstat = {
+        dynamicIcon = true;
+        leftClick = "hyprctl dispatch exec \"[float] ghostty -e bandwhich\"";
+      };
+
+      # Disk usage
+      bar.customModules.storage = {
+        # TODO: Figure out how to preserve colored output
+        leftClick = "hyprctl dispatch exec \"[float] ghostty -e zsh -c 'dust | less'\"";
+      };
+
+      # Appearance
+      bar.launcher.icon = "󱄅";
+
+      # Disable weather
+      menus.clock.weather.enabled = false;
+
+      # Scaling
+      theme.bar.menus.menu.battery.scaling = 65;
+      theme.bar.menus.menu.bluetooth.scaling = 65;
+      theme.bar.menus.menu.clock.scaling = 65;
+      theme.bar.menus.menu.dashboard.scaling = 65;
+      theme.bar.menus.menu.media.scaling = 65;
+      theme.bar.menus.menu.network.scaling = 65;
+      theme.bar.menus.menu.notifications.scaling = 65;
+      theme.bar.menus.menu.power.scaling = 65;
+      theme.bar.menus.menu.volume.scaling = 65;
+      theme.bar.menus.popover.scaling = 65;
+      theme.bar.scaling = 65;
+      theme.notification.scaling = 65;
+      theme.osd.scaling = 65;
+      theme.tooltip.scaling = 65;
     };
   };
 

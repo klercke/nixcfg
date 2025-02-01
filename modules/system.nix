@@ -14,6 +14,8 @@
     neovim
     cargo
     just
+    lm_sensors
+    cage # Kiosk WM used for greeter
   ];
 
   # Install firefox.
@@ -106,4 +108,15 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # === Security ===
+
+  # Let Bandwhich run without root
+  security.wrappers.bandwhich = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep";
+    source = "${pkgs.bandwhich}/bin/bandwhich";
+  };
+
 }

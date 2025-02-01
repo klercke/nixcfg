@@ -14,6 +14,12 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Hyprpanel
+    hyprpanel = {
+      url = "github:Jas-SinghFSU/HyprPanel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: {
@@ -42,6 +48,10 @@
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                 };
+                
+                nixpkgs.overlays = [
+                  inputs.hyprpanel.overlay
+                ];
               }
             ];
           };
