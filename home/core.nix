@@ -87,6 +87,7 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+      push.autoSetupRemote = true;
       core.pager = "delta";
       interactive.diffFilter = "delta --color-only";
       delta.navigate = true;
