@@ -40,6 +40,10 @@
     xplr # File manager
     hyperfine # Command benchmarking tool
 
+    # Desktop environment
+    hyprland
+    kitty
+
     # Cool kid utilities
     ripgrep # Faster grep/find alternative
     eza # A modern replacement for ls
@@ -127,6 +131,23 @@
   # Neovim
   programs.neovim = {
     defaultEditor = true;
+  };
+
+  # Hyprland
+  wayland.windowManager.hyprland = {
+    enable = true;
+    settings = {
+      monitor = [
+        "DP-2, 3440x1440@144, auto, 1"
+        "HDMI-A-1, 1920x1080@75, auto-left, 1, transform, 1"
+      ];
+      "$mod" = "SUPER";
+      bind = [
+        "$mod, F, exec, firefox"
+        "$mod, M, exit, "
+        "$mod, RETURN, exec, ghostty"
+      ];
+    };
   };
 
   # This value determines the home Manager release that your

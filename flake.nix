@@ -37,6 +37,8 @@
                 
                 home-manager.users.${username} = import ./home/core.nix;
 
+                home-manager.backupFileExtension = "bak";
+
                 home-manager.extraSpecialArgs = {
                   inherit inputs;
                 };
