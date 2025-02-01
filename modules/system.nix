@@ -15,7 +15,6 @@
     cargo
     just
     lm_sensors
-    cage
   ];
 
   # Install firefox.
