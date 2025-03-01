@@ -39,6 +39,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Disable IPv6
+  networking.enableIPv6 = false;
+
   # === Desktop Environment ===
 
   # Enable X11
@@ -60,7 +63,7 @@
     restart = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --greeting \"I am the master of my fate, I am the captain of my soul\" --remember --remember-user-session";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --remember --remember-user-session";
         user = "greeter";
       };
     };
