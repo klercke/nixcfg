@@ -9,10 +9,11 @@
   # System packages
   environment.systemPackages = with pkgs; [
     # Programming
-    cargo
     git
     gcc
     just
+    cargo
+    rust-analyzer
 
     wget
     neovim
