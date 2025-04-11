@@ -8,13 +8,16 @@
   
   # System packages
   environment.systemPackages = with pkgs; [
-    git
-    wget
-    gcc
-    neovim
+    # Programming
     cargo
+    git
+    gcc
     just
+
+    wget
+    neovim
     lm_sensors
+    librewolf
   ];
 
   # Install firefox.

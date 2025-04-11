@@ -22,6 +22,7 @@
     xplr # File manager
     hyperfine # Command benchmarking tool
     imagemagick # Image manipulatation
+    lunarvim # Vim-based IDE
 
     # Desktop environment
     hyprland # Desktop environmen
@@ -172,11 +173,15 @@
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
 
+        # Scroll through existing workspaces with mainMod + scroll
+        "$mod, mouse_down, workspace, e+1"
+        "$mod, mouse_up, workspace, e-1"
+
       ];
 
       bindm = [
-        "$mod, mouse:272, moveWindow"
-        "$mod, mouse:273, resizeWindow"
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
       ];
 
       exec-once = [
