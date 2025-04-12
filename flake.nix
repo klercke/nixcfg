@@ -20,9 +20,15 @@
       url = "github:Jas-SinghFSU/HyprPanel";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Rust
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, rust-overlay, ... }@inputs: {
     nixosConfigurations = {
       thor = let
         username = "d0c";
@@ -51,8 +57,15 @@
                 
                 nixpkgs.overlays = [
                   inputs.hyprpanel.overlay
+                  rust-overlay.overlays.default
                 ];
               }
+
+              ({ pkgs, ... }: {
+                environment.systemPackages = [
+                  pkgs.rust-bin.stable.latest.default
+                ];
+              })
             ];
           };
       };

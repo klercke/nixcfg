@@ -12,8 +12,6 @@
     git
     gcc
     just
-    cargo
-    rust-analyzer
 
     wget
     neovim
