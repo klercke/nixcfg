@@ -9,3 +9,7 @@ deploy:
   git add .
   nixos-rebuild switch --use-remote-sudo --flake $".#$(hostname)"
   exec zsh
+
+commit:
+  git add .
+  git commit
