@@ -14,7 +14,6 @@
     just
 
     wget
-    neovim
     lm_sensors
     librewolf
   ];

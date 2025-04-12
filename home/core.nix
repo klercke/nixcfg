@@ -86,6 +86,7 @@
       delta.line-numbers = true;
       delta.hyperlinks = true;
       merge.conflictstyle = "zdiff3";
+      core.editor = "lvim";
     };
   };
 
@@ -107,10 +108,11 @@
   programs.zsh = {
     enable = true;
     sessionVariables = {
-      EDITOR = "nvim";
+      EDITOR = "lvim";
     };
     shellAliases = {
       ls = "eza --long --header --group-directories-first --icons --color=always --git --time-style=long-iso";  
+      nvim = "lvim";
     };
     initExtra = ''
       # Starship
@@ -119,11 +121,6 @@
       # Zoxide
       eval "$(zoxide init zsh --cmd cd)"
     '';
-  };
-
-  # Neovim
-  programs.neovim = {
-    defaultEditor = true;
   };
 
   # Hyprland
