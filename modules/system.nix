@@ -16,6 +16,7 @@
     wget
     lm_sensors
     librewolf
+    gimp
   ];
 
   # Install firefox.
