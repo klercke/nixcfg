@@ -8,12 +8,15 @@
   
   # System packages
   environment.systemPackages = with pkgs; [
+    # Programming
     git
-    wget
     gcc
-    neovim
-    cargo
     just
+
+    wget
+    lm_sensors
+    librewolf
+    gimp
   ];
 
   # Install firefox.
@@ -106,4 +109,15 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+
+  # === Security ===
+
+  # Let Bandwhich run without root
+  security.wrappers.bandwhich = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep";
+    source = "${pkgs.bandwhich}/bin/bandwhich";
+  };
+
 }

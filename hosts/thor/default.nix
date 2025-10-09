@@ -1,5 +1,4 @@
-{ 
-  config,
+{ config,
   pkgs,
   inputs,
   lib,
@@ -28,6 +27,10 @@
   # Use Zen kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
+  # Load kernel modules
+  # coretemp, jc42, and nct6775 are for lm_sensors
+  boot.kernelModules = [ "coretemp" "jc42" "nct6775" ];
+
   # === Networking ===
 
   # Set hostname
@@ -35,6 +38,9 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Disable IPv6
+  networking.enableIPv6 = false;
 
   # === Desktop Environment ===
 
@@ -47,9 +53,21 @@
     variant = "";
   };
 
-  # Enable GNOME
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Disable GNOME
+  services.xserver.displayManager.gdm.enable = false;
+  services.xserver.desktopManager.gnome.enable = false;
+
+  # Enable Greetd
+  services.greetd = {
+    enable = true;
+    restart = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --remember --remember-user-session";
+        user = "greeter";
+      };
+    };
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
