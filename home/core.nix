@@ -4,6 +4,9 @@
   home.username = "d0c";
   home.homeDirectory = "/home/d0c";
 
+  # Install fonts
+  fonts.fontconfig.enable = true;
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # General utilities
@@ -63,6 +66,9 @@
     cbonsai # Generates bonsai trees
     neofetch # NixOS btw
     cmatrix # Matrix rain effect
+
+    # Fonts
+    nerd-fonts.jetbrains-mono
   ];
 
   # Git configuration
@@ -291,6 +297,11 @@
       theme.notification.scaling = 65;
       theme.osd.scaling = 65;
       theme.tooltip.scaling = 65;
+      
+      # Font
+      theme.font = {
+        name = "JetBrainsMono";
+      };
     };
   };
 
