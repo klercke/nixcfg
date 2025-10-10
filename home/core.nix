@@ -226,7 +226,6 @@
 
     settings = {
       # Layout
-      layout = {
         "bar.layouts" = {
           "0" = {
             left = [ "hypridle" "hyprsunset" "workspaces" "windowtitle" ];
@@ -239,7 +238,6 @@
             right = [];
           };
         };
-      };
 
       # Clock
       bar.clock = {
