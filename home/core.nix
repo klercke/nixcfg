@@ -1,8 +1,6 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
-
   home.username = "d0c";
   home.homeDirectory = "/home/d0c";
 
@@ -25,7 +23,7 @@
     lunarvim # Vim-based IDE
 
     # Desktop environment
-    hyprland # Desktop environmen
+    hyprland # Desktop environment
     hyprsunset # Blue light filter
     hypridle # Idle daemon to automatically lock screen
     hyprlock # Lockscreen
@@ -223,29 +221,26 @@
   programs.hyprpanel = {
     enable = true;
 
-    # Automatically start with hyprland
-    hyprland.enable = true;
-
     # Appearance
-    theme = "gruvbox";
-
-    # Layout
-    layout = {
-      "bar.layouts" = {
-        "0" = {
-          left = [ "hypridle" "hyprsunset" "workspaces" "windowtitle" ];
-          middle = [ "clock" ];
-          right = [ "cpu" "ram" "storage" "netstat" "volume" "systray" "notifications" ];
-        };
-        "1" = {
-          left = [];
-          middle = [];
-          right = [];
-        };
-      };
-    };
+    # theme = "gruvbox";
 
     settings = {
+      # Layout
+      layout = {
+        "bar.layouts" = {
+          "0" = {
+            left = [ "hypridle" "hyprsunset" "workspaces" "windowtitle" ];
+            middle = [ "clock" ];
+            right = [ "cpu" "ram" "storage" "netstat" "volume" "systray" "notifications" ];
+          };
+          "1" = {
+            left = [];
+            middle = [];
+            right = [];
+          };
+        };
+      };
+
       # Clock
       bar.clock = {
         format = "%Y-%m-%d %H:%M";
