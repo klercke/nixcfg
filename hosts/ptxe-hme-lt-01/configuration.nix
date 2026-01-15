@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./disk-config.nix
+      ./local-packages.nix
       ../../nixos/modules
     ];
 
@@ -102,22 +103,8 @@
 
   programs.firefox.enable = true;
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    nom
-    dix
-    gcc # Needed for lazyvim
-    nodejs # Needed for lazyvim
-    go # Needed for lazyvim
-    unzip # Needed for lazyvim
-    python3 # Needed for lazyvim
-    statix # Needed for lazyvim
-  ];
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   programs.nh = {
     enable = true;
     clean.enable = true;
