@@ -7,8 +7,17 @@ default:
 [group('desktop')]
 deploy:
   git add .
-  nixos-rebuild switch --use-remote-sudo --flake $".#$(hostname)"
+  nh os switch $".#$(hostname)" --ask
   exec zsh
+
+# Update flake
+[linux]
+[group('desktop')]
+switch-update:
+  git add .
+  nh os switch $".#$(hostname)" --ask --update
+  exec zsh
+
 
 commit:
   git add .

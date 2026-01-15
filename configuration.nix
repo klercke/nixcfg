@@ -68,11 +68,36 @@
   users.users.d0c = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
       tree
       neovim
       git
+      just
+      dotter
+
+      fzf
+      ripgrep
+      eza
+      btop
+      glow
+      bat
+      zoxide
+      tldr
+      delta
+      lazygit
+      dust
+      procs
+      ghostty
     ];
+  };
+
+  programs.zsh = {
+      enable = true;
+  };
+
+  programs.starship = {
+    enable = true;
   };
 
   programs.firefox.enable = true;
@@ -86,6 +111,11 @@
     dix
     gnupg # Part of my YK module
     pinentry-curses # Part of my YK module
+    gcc # Needed for lazyvim
+    nodejs # Needed for lazyvim
+    go # Needed for lazyvim
+    unzip # Needed for lazyvim
+    python3 # Needed for lazyvim
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
