@@ -1,0 +1,5 @@
+{
+  imports = [
+    ./yubikey-gpg.nix
+  ];
+}

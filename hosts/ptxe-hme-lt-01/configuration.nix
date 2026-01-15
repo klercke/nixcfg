@@ -2,21 +2,21 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, hostname, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #"${builtins.fetchTarball "https://github.com/nix-community/disko/archive/master.tar.gz"}/module.nix"
       ./disk-config.nix
+      ../../nixos/modules
     ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = hostname;
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -109,8 +109,6 @@
     wget
     nom
     dix
-    gnupg # Part of my YK module
-    pinentry-curses # Part of my YK module
     gcc # Needed for lazyvim
     nodejs # Needed for lazyvim
     go # Needed for lazyvim
@@ -124,22 +122,7 @@
     enable = true;
     clean.enable = true;
     clean.extraArgs = "--keep-since 30d --keep 30";
-    flake = "/etc/nixos#default";
   };
-
-  # This is all for Yubikey stuff - I can replace this with my yubikey-gpg module at some point
-  services.pcscd.enable = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
-    enableSSHSupport = true;
-  };
-
-  environment.shellInit = ''
-    gpg-connect-agent /bye
-    export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-  '';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
