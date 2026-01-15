@@ -7,7 +7,7 @@ default:
 [group('desktop')]
 deploy:
   git add .
-  nh os switch $".#$(hostname)" --ask
+  nh os switch $".#nixosConfigurations.$(hostname)" --ask
   exec zsh
 
 # Update flake
@@ -15,7 +15,7 @@ deploy:
 [group('desktop')]
 switch-update:
   git add .
-  nh os switch $".#$(hostname)" --ask --update
+  nh os switch $".#nixosConfigurations.$(hostname)" --ask --update
   exec zsh
 
 
