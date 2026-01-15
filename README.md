@@ -2,7 +2,7 @@
 
 
 ## Resources
-- [NixOS & Flakes Book](https://nixos-and-flakes.thiscute.world/)
+- [NixOS Manual](https://nixos.org/manual/nixos/stable)
 
 ## Credits
-- Modular structure based on [ryan4yin's config](https://github.com/ryan4yin/nix-config)
+- Format based on Andrey0189 [nixos-config-reborn](https://github.com/Andrey0189)
