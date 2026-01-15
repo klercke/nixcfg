@@ -18,13 +18,13 @@
     ];
 
     makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
-      system = system;
+      inherit system;
       specialArgs = {
         inherit inputs stateVersion hostname user;
       };
 
       modules = [
-        ./configuration.nix
+        ./hosts/${hostname}/configuration.nix
         disko.nixosModules.disko
       ];
     };
