@@ -3,10 +3,6 @@
   nixpkgs.config.allowUnfreePredicate = pkg:
   builtins.elem (lib.getName pkg) [
     "obsidian"
-    "steam"
-    "steam-original"
-    "steam-run"
-    "steam-unwrapped"
   ];
 
   home.packages = with pkgs; [
@@ -26,8 +22,5 @@
     # Desktop apps
     obs-studio
     obsidian
-
-    # Gaming
-    steam
   ];
 }

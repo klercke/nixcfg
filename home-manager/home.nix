@@ -1,6 +1,7 @@
 { homeStateVersion, user, ... }: {
   imports = [
     ./home-packages.nix
+    ./modules
   ];
 
   home = {
