@@ -1,6 +1,9 @@
 {
-  environment.sessionVariables = rec {
-    TERMINAL = "ghostty";
-    EDITOR = "nvim";
+  environment = {
+    sessionVariables = rec {
+      TERMINAL = "ghostty";
+      EDITOR = "nvim";
+    };
+    pathsToLink = [ "/share/zsh" ];
   };
 }

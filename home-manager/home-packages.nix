@@ -11,6 +11,7 @@
 
     # CLI utils
     btop
+    fastfetch
     fzf
     grimblast
     ripgrep
