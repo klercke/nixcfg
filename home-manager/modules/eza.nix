@@ -8,7 +8,6 @@
     icons = "auto";
     colors = "auto";
     git = true;
-    theme = "gruvbox-dark";
     extraOptions = [
       "-lah"
       "--group-directories-first"
