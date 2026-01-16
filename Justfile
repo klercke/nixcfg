@@ -8,6 +8,7 @@ default:
 deploy:
   git add .
   nh os switch $".#nixosConfigurations.$(hostname)" --ask
+  nh home switch .# --ask
   exec zsh
 
 # Update flake
@@ -16,6 +17,7 @@ deploy:
 switch-update:
   git add .
   nh os switch $".#nixosConfigurations.$(hostname)" --ask --update
+  nh home switch .# --ask --update
   exec zsh
 
 
