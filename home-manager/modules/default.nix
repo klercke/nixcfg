@@ -3,5 +3,6 @@
     ./zsh.nix
     ./neovim.nix
     ./zoxide.nix
+    ./starship.nix
   ];
 }
