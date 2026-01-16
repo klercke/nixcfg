@@ -4,5 +4,6 @@
     ./neovim.nix
     ./zoxide.nix
     ./starship.nix
+    ./eza.nix
   ];
 }
