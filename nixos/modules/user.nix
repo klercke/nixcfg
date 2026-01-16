@@ -22,7 +22,6 @@
         btop
         glow
         bat
-        zoxide
         tldr
         delta
         lazygit

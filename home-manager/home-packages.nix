@@ -19,6 +19,7 @@
     wget
     yt-dlp
     zip
+    zoxide
 
     # Desktop apps
     obs-studio

@@ -1,4 +1,4 @@
-{ config, ...}: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -39,6 +39,7 @@
 
     initContent = ''
       command -v fastfetch >/dev/null && fastfetch
+      eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
     '';
   };
 }
