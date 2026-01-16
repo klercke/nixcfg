@@ -4,11 +4,5 @@
     wget
     nom
     dix
-    gcc # Needed for lazyvim
-    nodejs # Needed for lazyvim
-    go # Needed for lazyvim
-    unzip # Needed for lazyvim
-    python3 # Needed for lazyvim
-    statix # Needed for lazyvim
   ];
 }
