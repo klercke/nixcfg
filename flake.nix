@@ -15,7 +15,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, disko, home-manager, ... }@inputs: let 
+  outputs = { nixpkgs, disko, home-manager, ... }@inputs: let 
     system = "x86_64-linux";
     homeStateVersion = "25.11"; # I tried to make this part of the hosts array
                                 # but couldn't figure out how. Maybe it's a bad
