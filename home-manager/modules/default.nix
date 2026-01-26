@@ -5,5 +5,6 @@
     ./zoxide.nix
     ./starship.nix
     ./eza.nix
+    ./hyprland.nix
   ];
 }

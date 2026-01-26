@@ -8,7 +8,6 @@
     ./user.nix
     ./nix.nix
     ./nh.nix
-    ./gnome.nix
     ./i18n.nix
     ./zen.nix
     ./home-manager.nix
