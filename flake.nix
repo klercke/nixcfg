@@ -17,12 +17,9 @@
 
   outputs = { nixpkgs, disko, home-manager, ... }@inputs: let 
     system = "x86_64-linux";
-    homeStateVersion = "25.11"; # I tried to make this part of the hosts array
-                                # but couldn't figure out how. Maybe it's a bad
-                                # idea anyway
     user = "d0c";
     hosts = [
-      { hostname = "ptxe-hme-lt-01"; stateVersion = "25.11"; }
+      { hostname = "ptxe-hme-lt-01"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
     ];
 
     makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
@@ -37,6 +34,14 @@
       ];
     };
 
+    makeHome = { hostname, homeStateVersion }: home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = {
+        inherit inputs homeStateVersion user hostname;
+      };
+      modules = [ ./home-manager/home.nix ];
+    };
+
   in {
     nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
     configs // {
@@ -45,16 +50,12 @@
       };
     }) {} hosts;
 
-    homeConfigurations.${user} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = {
-        inherit inputs homeStateVersion user;
+    homeConfigurations = nixpkgs.lib.foldl' (configs: host:
+    configs // {
+      "${user}@${host.hostname}" = makeHome {
+        inherit (host) hostname homeStateVersion;
       };
-
-      modules = [
-        ./home-manager/home.nix
-      ];
-    };
+    }) {} hosts;
   };
 }
 
