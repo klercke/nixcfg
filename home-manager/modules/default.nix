@@ -7,5 +7,6 @@
     ./eza.nix
     ./hyprland.nix
     ./ghostty.nix
+    ./wofi
   ];
 }
