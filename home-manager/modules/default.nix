@@ -5,7 +5,7 @@
     ./zoxide.nix
     ./starship.nix
     ./eza.nix
-    ./hyprland.nix
+    ./hyprland
     ./ghostty.nix
     ./wofi
   ];
