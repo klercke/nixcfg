@@ -6,5 +6,6 @@
     ./starship.nix
     ./eza.nix
     ./hyprland.nix
+    ./ghostty.nix
   ];
 }
