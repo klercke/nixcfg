@@ -6,6 +6,7 @@
       "$mainMod_SHIFT, M, exit"
       "$mainMod, V, togglefloating"
       "$mainMod, D, exec, $menu"
+      "$mainMod_SHIFT, L, exec, hyprlock"
     ];
   };
 }
