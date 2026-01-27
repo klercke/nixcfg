@@ -8,5 +8,6 @@
     ./hyprland
     ./ghostty.nix
     ./wofi
+    ./stylix.nix
   ];
 }

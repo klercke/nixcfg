@@ -24,5 +24,8 @@
     # Desktop apps
     obs-studio
     obsidian
+
+    # Dependencies
+    dconf
   ];
 }

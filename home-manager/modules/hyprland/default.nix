@@ -3,5 +3,6 @@
     ./main.nix
     ../../../hosts/${hostname}/hyprland.nix
     ./binds.nix
+    ./hyprpaper.nix
   ];
 }
