@@ -2,11 +2,16 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    systemd.enable = true;
 
     settings = {
       "$mainMod" = "SUPER";
       "$terminal" = "ghostty";
       "$menu" = "wofi --show drun";
+
+      exec-once = [
+        "waybar"
+      ];
 
       general = {
         gaps_in = 5;

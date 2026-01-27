@@ -9,5 +9,6 @@
     ./ghostty.nix
     ./wofi
     ./stylix.nix
+    ./waybar
   ];
 }

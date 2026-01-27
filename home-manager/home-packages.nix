@@ -25,7 +25,8 @@
     obs-studio
     obsidian
 
-    # Dependencies
+    # WM Things
     dconf
+    brightnessctl
   ];
 }
