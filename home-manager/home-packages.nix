@@ -26,7 +26,8 @@
     obsidian
 
     # WM Things
-    dconf
     brightnessctl
+    dconf
+    playerctl
   ];
 }
