@@ -12,6 +12,7 @@
       ./local-packages.nix
       ../../nixos/modules
       ../../nixos/modules/steam.nix
+      ../../nixos/modules/colemak.nix
     ];
 
   networking.hostName = hostname;
