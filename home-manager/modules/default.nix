@@ -12,5 +12,7 @@
     ./xdg-terminal-exec.nix
     ./btop.nix
     ./nixvim
+    ./git.nix
+    ./gpg.nix
   ];
 }
