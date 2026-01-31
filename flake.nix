@@ -23,9 +23,14 @@
       url = "github:nix-community/nixvim/nixos-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, disko, home-manager, ... }@inputs: let 
+  outputs = { nixpkgs, disko, home-manager, nur, ... }@inputs: let 
     system = "x86_64-linux";
     user = "d0c";
     hosts = [
@@ -50,7 +55,10 @@
       extraSpecialArgs = {
         inherit inputs homeStateVersion user hostname;
       };
-      modules = [ ./home-manager/home.nix ];
+      modules = [
+        ./home-manager/home.nix
+        nur.modules.homeManager.default
+      ];      
     };
 
   in {

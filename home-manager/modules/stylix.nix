@@ -22,6 +22,10 @@
       hyprland.enable = false;
       waybar.enable = false;
       btop.enable = false;
+      firefox = {
+        enable = true;
+        profileNames = [ "default" ];
+      };
     };
 
     cursor = {

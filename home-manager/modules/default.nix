@@ -14,5 +14,6 @@
     ./nixvim
     ./git.nix
     ./gpg.nix
+    ./firefox.nix
   ];
 }
