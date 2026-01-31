@@ -27,7 +27,7 @@
       "$mainMod, 7, workspace, 7"
       "$mainMod, 8, workspace, 8"
       "$mainMod, 9, workspace, 9"
-      "$mainMod, 10, workspace, 10"
+      "$mainMod, 0, workspace, 10"
 
       "$mainMod_SHIFT, 1, movetoworkspace, 1"
       "$mainMod_SHIFT, 2, movetoworkspace, 2"
@@ -38,7 +38,7 @@
       "$mainMod_SHIFT, 7, movetoworkspace, 7"
       "$mainMod_SHIFT, 8, movetoworkspace, 8"
       "$mainMod_SHIFT, 9, movetoworkspace, 9"
-      "$mainMod_SHIFT, 10, movetoworkspace, 10"
+      "$mainMod_SHIFT, 0, movetoworkspace, 10"
     ];
 
     bindel = [

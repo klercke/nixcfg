@@ -28,6 +28,7 @@
     # WM Things
     brightnessctl
     dconf
+    pavucontrol
     playerctl
   ];
 }

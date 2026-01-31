@@ -20,6 +20,7 @@
     targets = {
       neovim.enable = false;
       hyprland.enable = false;
+      waybar.enable = false;
     };
 
     image = pkgs.fetchurl {
