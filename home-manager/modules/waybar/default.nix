@@ -47,8 +47,12 @@
         };
 
         "network" = {
-          format = "󰛴 {bandwidthDownBytes}Bps 󰛶 {bandwithUpBytes}Bps";
+          interval = 1;
+          format-disconnected = "󰈂 {ifname} (disconnected)";
+          format-disabled = "󰈂 {ifname} (disabled)";
+          format-linked = "󰈀 {ifname} (linked)";
           format-wifi = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes}  󰀂 {essid} ({signalStrength}%)";
+          format-ethernet = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes} 󰈀 {ifname}";
         };
 
         "idle_inhibitor" = {
