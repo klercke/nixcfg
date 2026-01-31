@@ -1,7 +1,6 @@
 { pkgs, user, ...}: {
   programs = {
     zsh.enable = true;
-    starship.enable = true;
   };
 
   users = {
@@ -12,7 +11,7 @@
       packages = with pkgs; [
         tree
         nano
-	vim
+      	vim
         git
         just
         dotter
