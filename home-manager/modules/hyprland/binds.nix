@@ -7,6 +7,7 @@
       "$mainMod, V, togglefloating"
       "$mainMod, D, exec, $menu"
       "$mainMod_SHIFT, L, exec, loginctl lock-session"
+      "$mainMod, F, fullscreen"
 
       "$mainMod, h, movefocus, l"
       "$mainMod, l, movefocus, r"
