@@ -24,6 +24,7 @@
     firefox
     obs-studio
     obsidian
+    prismlauncher
     webcord
 
     # WM Things
