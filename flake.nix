@@ -30,6 +30,7 @@
     user = "d0c";
     hosts = [
       { hostname = "ptxe-hme-lt-01"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
+      { hostname = "thor"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
     ];
 
     makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
