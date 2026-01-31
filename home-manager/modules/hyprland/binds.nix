@@ -8,6 +8,7 @@
       "$mainMod, D, exec, $menu"
       "$mainMod_SHIFT, L, exec, loginctl lock-session"
       "$mainMod, F, fullscreen"
+      "$mainMod_SHIFT, S, exec, grimblast --notify --freeze copysave area"
 
       "$mainMod, h, movefocus, l"
       "$mainMod, l, movefocus, r"

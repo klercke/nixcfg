@@ -12,7 +12,6 @@
     # CLI utils
     fastfetch
     fzf
-    grimblast
     ripgrep
     unzip
     wget
@@ -30,6 +29,7 @@
     # WM Things
     brightnessctl
     dconf
+    grimblast
     pavucontrol
     playerctl
   ];

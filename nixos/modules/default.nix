@@ -11,5 +11,6 @@
     ./i18n.nix
     ./zen.nix
     ./home-manager.nix
+    ./env.nix
   ];
 }
