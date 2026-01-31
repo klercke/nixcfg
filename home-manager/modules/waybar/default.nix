@@ -9,7 +9,7 @@
         height = 30;
         modules-left = ["idle_inhibitor" "hyprland/workspaces"];
         modules-center = ["clock"];
-        modules-right = ["cpu" "memory" "disk" "pulseaudio" "battery" "tray"];
+        modules-right = ["cpu" "memory" "disk" "network" "pulseaudio" "battery" "tray"];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -19,8 +19,44 @@
         };
         
         "cpu" = {
-          format = " {usage}";
-          on-click = "btop";
+          format = " {usage}%";
+          on-click = "ghostty -e btop";
+          states = {
+            warning = 50;
+            critical = 90;
+          };
+        };
+
+        "memory" = {
+          format = " {percentage}%";
+          tooltip-format = "{used}GiB/{total}GiB used ({percentage}%)";
+          on-click = "ghostty -e btop";
+          states = {
+            warning = 50;
+            critical = 90;
+          };
+        };
+
+        "disk" = {
+          format = "󰋊 /home {percentage_used}%";
+          path = "/home";
+          states = {
+            warning = 75;
+            critical = 90;
+          };
+        };
+
+        "network" = {
+          format = "󰛴 {bandwidthDownBytes}Bps 󰛶 {bandwithUpBytes}Bps";
+          format-wifi = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes}  󰀂 {essid} ({signalStrength}%)";
+        };
+
+        "idle_inhibitor" = {
+          format = "{icon}";
+          format-icons = {
+            activated = "󰒳";
+            deactivated = "󰒲";
+          };
         };
 
         "pulseaudio" = {

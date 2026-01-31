@@ -1,9 +1,9 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: "JetBrains Mono";
+  /*font-family: "JetBrains Mono";*/
   font-weight: bold;
-  font-size: 16px;
+  font-size: 12px;
   min-height: 0;
   color: #ebdbb2;
 }
@@ -24,21 +24,21 @@ window#waybar {
   background: #d65d0e;
 }
 
-#clock, #battery, #pulseaudio, #tray, #language, #weather {
+#clock, #battery, #pulseaudio, #tray, #language, #weather, #cpu, #memory, #disk, #network, #idle_inhibitor {
   padding: 0 10px;
   margin: 0 10px;
 }
 
-#language {
+#cpu, #memory, #disk {
+  margin: 0;
+  color: #98971a;
+  border-bottom: 5px solid #98971a;
+}
+
+#network {
   margin: 0;
   color: #d79921;
   border-bottom: 5px solid #d79921;
-}
-
-#custom-weather {
-  margin: 0;
-  color: #98971a;
-  border-bottom: 5px solid #98971a
 }
 
 #pulseaudio {
@@ -57,6 +57,16 @@ window#waybar {
   margin: 0;
   color: #458588;
   border-bottom: 5px solid #458588;
+}
+
+#battery.warning, #cpu.warning, #memory.warning, #disk.warning {
+  color: #fe8019;
+  border-bottom: 5px solid #fe8019;
+}
+
+#battery.critical, #cpu.critical, #memory.critical, #disk.critical {
+  color: #cc241d;
+  border-bottom: 5px solid #cc241d;
 }
 
 #clock {
