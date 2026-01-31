@@ -22,6 +22,7 @@
     zoxide
 
     # Desktop apps
+    firefox
     obs-studio
     obsidian
 
