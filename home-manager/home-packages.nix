@@ -10,7 +10,6 @@
     # Packages are soted alphabetically within categories
 
     # CLI utils
-    btop
     fastfetch
     fzf
     grimblast

@@ -11,5 +11,6 @@
     ./stylix.nix
     ./waybar
     ./xdg-terminal-exec.nix
+    ./btop.nix
   ];
 }
