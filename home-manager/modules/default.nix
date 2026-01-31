@@ -1,7 +1,6 @@
 {
   imports = [
     ./zsh.nix
-    ./neovim.nix
     ./zoxide.nix
     ./starship.nix
     ./eza.nix
@@ -12,5 +11,6 @@
     ./waybar
     ./xdg-terminal-exec.nix
     ./btop.nix
+    ./nixvim
   ];
 }

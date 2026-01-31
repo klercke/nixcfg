@@ -11,7 +11,8 @@
       extraGroups = [ "wheel" "networkmanager" "seat" ];
       packages = with pkgs; [
         tree
-        neovim
+        nano
+	vim
         git
         just
         dotter
