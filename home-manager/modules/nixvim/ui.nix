@@ -9,8 +9,8 @@
 
   plugins.rainbow-delimiters = {
     enable = true;
-    settings = {''
-      local hooks = require "ibl.hooks";
-    ''};
+    #settings = {''
+    #  local hooks = require "ibl.hooks";
+    #''};
   };
 }
