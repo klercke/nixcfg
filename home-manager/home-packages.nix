@@ -24,6 +24,7 @@
     firefox
     obs-studio
     obsidian
+    webcord
 
     # WM Things
     brightnessctl
