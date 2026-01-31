@@ -19,7 +19,8 @@
         };
         
         "cpu" = {
-          
+          format = " {usage}";
+          on-click = "btop";
         };
 
         "pulseaudio" = {

@@ -10,5 +10,6 @@
     ./wofi
     ./stylix.nix
     ./waybar
+    ./xdg-terminal-exec.nix
   ];
 }
