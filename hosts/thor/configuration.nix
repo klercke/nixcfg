@@ -12,6 +12,7 @@
       ./local-packages.nix
       ../../nixos/modules
       ../../nixos/modules/steam.nix
+      ../../nixos/modules/amdgpu.nix
     ];
 
   users.users.root.initialHashedPassword = "";
