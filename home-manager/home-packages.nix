@@ -21,6 +21,7 @@
 
     # Desktop apps
     firefox
+    gimp
     obs-studio
     obsidian
     prismlauncher
