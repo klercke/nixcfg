@@ -25,6 +25,7 @@
     obs-studio
     obsidian
     prismlauncher
+    thunderbird
     webcord
 
     # WM Things
