@@ -28,6 +28,10 @@
     thunderbird
     webcord
 
+    # Networking tools
+    bind
+    iperf3
+
     # WM Things
     brightnessctl
     dconf
