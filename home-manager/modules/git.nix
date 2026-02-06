@@ -7,6 +7,10 @@
         name = "Konnor Klercke";
         email = "klercke@protonmail.com";
       };
+      
+      merge = {
+        conflictStyle = "zdiff3";
+      };
     };
 
     signing = {
