@@ -17,5 +17,6 @@
     ./firefox.nix
     ./zellij.nix
     ./direnv.nix
+    ./delta.nix
   ];
 }
