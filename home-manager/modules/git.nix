@@ -11,6 +11,14 @@
       merge = {
         conflictStyle = "zdiff3";
       };
+      
+      push = {
+        autoSetupRemote = true;
+      };
+
+      init = {
+        defaultBranch = "main";
+      };
     };
 
     signing = {
