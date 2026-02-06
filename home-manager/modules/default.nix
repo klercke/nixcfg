@@ -15,5 +15,6 @@
     ./git.nix
     ./gpg.nix
     ./firefox.nix
+    ./zellij.nix
   ];
 }
