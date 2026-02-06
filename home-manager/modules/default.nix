@@ -16,5 +16,6 @@
     ./gpg.nix
     ./firefox.nix
     ./zellij.nix
+    ./direnv.nix
   ];
 }
