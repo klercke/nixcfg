@@ -27,6 +27,10 @@
     prismlauncher
     thunderbird
     webcord
+    
+    # Dev tools
+    bacon
+    direnv
 
     # Networking tools
     bind
