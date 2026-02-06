@@ -30,6 +30,7 @@
     
     # Dev tools
     bacon
+    glab
 
     # Networking tools
     bind
