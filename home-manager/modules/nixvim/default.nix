@@ -6,7 +6,8 @@
       ./options.nix
       ./ui.nix
       ./plugins.nix
-      ./lsp.nix
+      ./language.nix
+      ./rust.nix
     ];
 
     enable = true;
