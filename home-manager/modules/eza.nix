@@ -9,7 +9,7 @@
     colors = "auto";
     git = true;
     extraOptions = [
-      "-lah"
+      "-lh"
       "--group-directories-first"
     ];
   };

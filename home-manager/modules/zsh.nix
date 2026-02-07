@@ -31,7 +31,6 @@
 
     shellAliases = {
       lg = "lazygit";
-      ls = "eza -lah --color=auto --icons";
       cat = "bat";
       find = "fd";
       tf = "tofu";
