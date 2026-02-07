@@ -42,12 +42,12 @@
             {pane_template = {
               name = "cargo";
               command = "cargo";
-              start_suspended = true;
+              start_suspended = false;
             };}
             {pane_template = {
               name = "bacon";
               command = "bacon";
-              start_suspended = true;
+              start_suspended = false;
             };}
           ];
         };
