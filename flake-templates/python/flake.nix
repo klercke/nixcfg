@@ -1,6 +1,4 @@
 {
-  description = "Brite IaC-Helper";
-
   inputs = {
     # Use stable nixpkgs
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -21,7 +19,7 @@
 
   outputs = { self, nixpkgs, uv2nix, pyproject-nix, pyproject-build-systems, ... }:
     let
-      projectName = "iac-helper";
+      projectName = "my-project"; # This needs to match package.name in pyproject.toml
 
       workspace = uv2nix.lib.workspace.loadWorkspace {
         workspaceRoot = ./.;
