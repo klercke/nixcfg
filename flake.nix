@@ -28,17 +28,22 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL/main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { nixpkgs, disko, home-manager, nur, ... }@inputs: let 
     system = "x86_64-linux";
-    user = "d0c";
     hosts = [
-      { hostname = "ptxe-hme-lt-01"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
-      { hostname = "thor"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
+      { user = "d0c"; hostname = "ptxe-hme-lt-01"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
+      { user = "d0c"; hostname = "thor"; stateVersion = "25.11"; homeStateVersion = "25.11"; }
+      { user = "kklercke"; hostname = "work-wsl"; stateVersion = "25.05"; homeStateVersion = "25.11"; }
     ];
 
-    makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
+    makeSystem = { hostname, user, stateVersion }: nixpkgs.lib.nixosSystem {
       inherit system;
       specialArgs = {
         inherit inputs stateVersion hostname user;
@@ -50,7 +55,7 @@
       ];
     };
 
-    makeHome = { hostname, homeStateVersion }: home-manager.lib.homeManagerConfiguration {
+    makeHome = { hostname, user, homeStateVersion }: home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {
         inherit inputs homeStateVersion user hostname;
@@ -65,14 +70,14 @@
     nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
     configs // {
       "${host.hostname}" = makeSystem {
-        inherit (host) hostname stateVersion;
+        inherit (host) hostname user stateVersion;
       };
     }) {} hosts;
 
     homeConfigurations = nixpkgs.lib.foldl' (configs: host:
     configs // {
-      "${user}@${host.hostname}" = makeHome {
-        inherit (host) hostname homeStateVersion;
+      "${host.user}@${host.hostname}" = makeHome {
+        inherit (host) hostname user homeStateVersion;
       };
     }) {} hosts;
   };

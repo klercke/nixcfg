@@ -2,7 +2,7 @@
   # Allowed unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg:
   builtins.elem (lib.getName pkg) [
-    "obsidian"
+    
   ];
 
   home.packages = with pkgs; [
@@ -18,15 +18,6 @@
     yt-dlp
     zip
     zoxide
-
-    # Desktop apps
-    firefox
-    gimp
-    obs-studio
-    obsidian
-    prismlauncher
-    thunderbird
-    webcord
     
     # Dev tools
     bacon
@@ -35,12 +26,5 @@
     # Networking tools
     bind
     iperf3
-
-    # WM Things
-    brightnessctl
-    dconf
-    grimblast
-    pavucontrol
-    playerctl
   ];
 }
