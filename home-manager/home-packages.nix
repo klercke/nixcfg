@@ -24,6 +24,7 @@
     # Dev tools
     bacon
     glab
+    hyperfine
 
     # Networking tools
     bind
