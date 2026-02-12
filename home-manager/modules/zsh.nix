@@ -5,7 +5,20 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     
-    completionInit = "autoload -U compinit && compinit";
+    completionInit = ''
+      # Only initialise once per session
+      if [[ -z $ZSH_COMPDUMP ]]; then
+        # Directory where the dump will be kept
+        export ZSH_COMPDUMP="${builtins.getEnv "XDG_CACHE_HOME"}/zsh/.zcompdump"
+        # Enable the cache and tell Zsh where to store it
+        zstyle ':completion:*' use-cache true
+        zstyle ':completion:*' cache-path "${builtins.getEnv "XDG_CACHE_HOME"}/zsh"
+        # Initialise completion, skipping the costly compaudit step
+        autoload -Uz compinit && compinit -C
+      fi
+    '';
+
+
     defaultKeymap = "emacs";
 
     history = {
@@ -23,9 +36,9 @@
     zplug = {
       enable = true;
       plugins = [
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-completions"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "zsh-users/zsh-autosuggestions"; tags = [ "defer:2" ]; }
+        { name = "zsh-users/zsh-completions"; tags = [ "defer:2" ]; }
+        { name = "zsh-users/zsh-syntax-highlighting"; tags = [ "defer:2" ]; }
       ];
     };
 
@@ -37,10 +50,13 @@
       man = "batman";
     };
 
+    # Enable for zsh profiling
+    zprof.enable = false;
+
     initContent = let 
-      zshConfigEarlyInit = lib.mkOrder 500 "zmodload zsh/zprof";
-      zshConfigLateInit = lib.mkOrder 1500 "zprof";
-      zshConfigInit = ''
+      zshConfigEarlyInit = lib.mkOrder 500 "";
+      zshConfigLateInit = lib.mkOrder 1500 "";
+      zshConfigInit = lib.mkOrder 1000 ''
         command -v fastfetch >/dev/null && fastfetch
         eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
       '';
