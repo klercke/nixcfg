@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -37,9 +37,15 @@
       man = "batman";
     };
 
-    initContent = ''
-      command -v fastfetch >/dev/null && fastfetch
-      eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
-    '';
+    initContent = let 
+      zshConfigEarlyInit = lib.mkOrder 500 "zmodload zsh/zprof";
+      zshConfigLateInit = lib.mkOrder 1500 "zprof";
+      zshConfigInit = ''
+        command -v fastfetch >/dev/null && fastfetch
+        eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
+      '';
+    in
+      lib.mkMerge [ zshConfigEarlyInit zshConfigInit zshConfigLateInit ];
+
   };
 }
