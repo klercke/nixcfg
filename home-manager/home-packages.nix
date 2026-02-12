@@ -10,6 +10,8 @@
     # Packages are soted alphabetically within categories
 
     # CLI utils
+    bat
+    bat-extras.batman
     fastfetch
     fzf
     ripgrep

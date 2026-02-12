@@ -34,6 +34,7 @@
       cat = "bat";
       find = "fd";
       tf = "tofu";
+      man = "batman";
     };
 
     initContent = ''
