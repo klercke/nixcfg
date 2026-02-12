@@ -26,5 +26,6 @@
     # Networking tools
     bind
     iperf3
+    whois
   ];
 }
