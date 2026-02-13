@@ -11,6 +11,9 @@
     prismlauncher
     thunderbird
     webcord
+
+    # Gaming
+    r2modman
     
     # WM Things
     brightnessctl
