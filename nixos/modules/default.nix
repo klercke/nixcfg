@@ -12,5 +12,6 @@
     ./zen.nix
     ./home-manager.nix
     ./env.nix
+    ./nix-ld.nix
   ];
 }
