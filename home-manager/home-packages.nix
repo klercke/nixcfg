@@ -10,6 +10,8 @@
     # Packages are soted alphabetically within categories
 
     # CLI utils
+    bat
+    bat-extras.batman
     fastfetch
     fzf
     ripgrep
@@ -18,29 +20,15 @@
     yt-dlp
     zip
     zoxide
-
-    # Desktop apps
-    firefox
-    gimp
-    obs-studio
-    obsidian
-    prismlauncher
-    thunderbird
-    webcord
     
     # Dev tools
     bacon
     glab
+    hyperfine
 
     # Networking tools
     bind
     iperf3
-
-    # WM Things
-    brightnessctl
-    dconf
-    grimblast
-    pavucontrol
-    playerctl
+    whois
   ];
 }

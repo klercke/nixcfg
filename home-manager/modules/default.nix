@@ -4,17 +4,10 @@
     ./zoxide.nix
     ./starship.nix
     ./eza.nix
-    ./hyprland
-    ./ghostty.nix
-    ./wofi
-    ./stylix.nix
-    ./waybar
-    ./xdg-terminal-exec.nix
     ./btop.nix
     ./nixvim
     ./git.nix
     ./gpg.nix
-    ./firefox.nix
     ./zellij.nix
     ./direnv.nix
     ./delta.nix
