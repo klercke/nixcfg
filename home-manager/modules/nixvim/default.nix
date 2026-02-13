@@ -8,6 +8,7 @@
       ./plugins.nix
       ./language.nix
       ./rust.nix
+      ./python.nix
     ];
 
     enable = true;

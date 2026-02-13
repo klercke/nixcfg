@@ -25,6 +25,11 @@
     lsp = {
       enable = true;
       inlayHints = true;
+      servers = {
+        pyright.enable = true;
+        rust_analyzer.enable = false; # Rustaceanvim handles this
+        statix.enable = true;
+      };
     };
     cmp = {
       enable = true;
