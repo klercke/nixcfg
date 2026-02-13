@@ -7,7 +7,7 @@
     defaultUserShell = pkgs.zsh;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "seat" ];
+      extraGroups = [ "wheel" "networkmanager" "seat" "gamemode" ];
       packages = with pkgs; [
         tree
         nano
