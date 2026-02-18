@@ -13,6 +13,7 @@
     bat
     bat-extras.batman
     fastfetch
+    fd
     fzf
     ripgrep
     unzip
