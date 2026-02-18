@@ -4,6 +4,7 @@
     # Packages are soted alphabetically within categories
 
     # Desktop apps
+    calibre
     firefox
     gimp
     obs-studio
