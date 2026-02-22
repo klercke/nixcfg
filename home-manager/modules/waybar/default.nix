@@ -52,7 +52,7 @@
           format-disabled = "󰈂 {ifname} (disabled)";
           format-linked = "󰈀 {ifname} (linked)";
           format-wifi = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes}  󰀂 {essid} ({signalStrength}%)";
-          format-ethernet = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes} 󰈀 {ifname}";
+          format-ethernet = "󰛴 {bandwidthDownBytes} 󰛶 {bandwidthUpBytes}";
         };
 
         "idle_inhibitor" = {
