@@ -13,5 +13,6 @@
     ./home-manager.nix
     ./env.nix
     ./nix-ld.nix
+    ./firewall.nix
   ];
 }
