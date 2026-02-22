@@ -14,6 +14,7 @@
       ../../nixos/modules/amdgpu.nix
       ../../nixos/modules/gaming.nix
       ../../nixos/modules/udisks2.nix
+      ../../nixos/modules/zram.nix
     ];
 
   users.users.root.initialHashedPassword = "";
