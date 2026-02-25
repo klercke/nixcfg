@@ -49,6 +49,7 @@
       inherit system;
       specialArgs = {
         inherit inputs stateVersion hostname user;
+        pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
       };
 
       modules = [
@@ -61,6 +62,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {
         inherit inputs homeStateVersion user hostname;
+        pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
       };
       modules = [
         ./home-manager/home.nix
@@ -82,8 +84,6 @@
         inherit (host) hostname user homeStateVersion;
       };
     }) {} hosts;
-
-    pkgs-unstable = inputs.unstable.pkgs;
   };
 }
 
