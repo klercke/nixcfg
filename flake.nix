@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,6 +82,8 @@
         inherit (host) hostname user homeStateVersion;
       };
     }) {} hosts;
+
+    pkgs-unstable = inputs.unstable.pkgs;
   };
 }
 
