@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -47,6 +49,7 @@
       inherit system;
       specialArgs = {
         inherit inputs stateVersion hostname user;
+        pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
       };
 
       modules = [
@@ -59,6 +62,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = {
         inherit inputs homeStateVersion user hostname;
+        pkgs-unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
       };
       modules = [
         ./home-manager/home.nix
