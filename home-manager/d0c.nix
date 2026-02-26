@@ -5,6 +5,7 @@
 
     # Desktop apps
     calibre
+    chromium
     firefox
     gimp
     obs-studio
