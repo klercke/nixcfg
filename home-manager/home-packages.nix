@@ -15,6 +15,7 @@
     fastfetch
     fd
     fzf
+    imagemagick
     ripgrep
     unzip
     wget
