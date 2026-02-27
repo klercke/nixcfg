@@ -1,11 +1,5 @@
 { pkgs, pkgs-unstable, lib, ... }:
 let 
-  # Allowed unfree packages
-  nixpkgs.config.allowUnfreePredicate = pkg:
-  builtins.elem (lib.getName pkg) [
-    "obsidian"
-  ];
-
   stablePkgs = with pkgs; [
     # Categories are sorted alphabetically
     # Packages are soted alphabetically within categories
