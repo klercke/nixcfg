@@ -30,6 +30,7 @@
         pyright.enable = true;
         rust_analyzer.enable = false; # Rustaceanvim handles this
         statix.enable = true;
+        nixd.enable = true;
       };
     };
     cmp = {
