@@ -5,7 +5,7 @@
     options = {
       side-by-side = true;
       line-numbers = true;
-      navigate = true; 
+      navigate = true;
       dark = true;
     };
   };

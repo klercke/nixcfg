@@ -1,5 +1,10 @@
-{ pkgs, pkgs-unstable, lib, ... }:
-let 
+{
+  pkgs,
+  pkgs-unstable,
+  lib,
+  ...
+}:
+let
   stablePkgs = with pkgs; [
     # Categories are sorted alphabetically
     # Packages are soted alphabetically within categories
@@ -16,7 +21,7 @@ let
     yt-dlp
     zip
     zoxide
-    
+
     # Dev tools
     bacon
     glab
@@ -33,7 +38,7 @@ let
 
     fastfetch # My MR to add 6 colors to the NixOS logo is not in stable nixpkgs yet
   ];
-in {
+in
+{
   home.packages = stablePkgs ++ unstablePkgs;
 }
-

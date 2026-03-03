@@ -1,11 +1,13 @@
-{ lib, pkgs, ... }: {
-  nixpkgs.config.allowUnfreePredicate = pkg:
+{ lib, pkgs, ... }:
+{
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-run"
-    "steam-unwrapped"
-  ];
+      "steam"
+      "steam-original"
+      "steam-run"
+      "steam-unwrapped"
+    ];
 
   environment.systemPackages = with pkgs; [
     protonup-ng
@@ -16,8 +18,7 @@
   ];
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATH = 
-      "\\\${HOME}/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATH = "\\\${HOME}/.steam/root/compatibilitytools.d";
   };
 
   programs.gamemode.enable = true;

@@ -1,4 +1,11 @@
-{ hostname, user, stateVersion, inputs, ... }: {
+{
+  hostname,
+  user,
+  stateVersion,
+  inputs,
+  ...
+}:
+{
   imports = [
     inputs.nixos-wsl.nixosModules.wsl
     ./local-packages.nix

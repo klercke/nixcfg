@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.firefox = {
     enable = true;
     profiles = {
@@ -14,18 +15,25 @@
         search = {
           force = true;
           default = "ddg";
-          order = [ "ddg" "NixPkgs" "ProtonDB" "google" ];
+          order = [
+            "ddg"
+            "NixPkgs"
+            "ProtonDB"
+            "google"
+          ];
           engines = {
             "NixPkgs" = {
-              urls = [{
-                template = "https://search.nixos.org/packages?query={searchTerms}";
-              }];
+              urls = [
+                {
+                  template = "https://search.nixos.org/packages?query={searchTerms}";
+                }
+              ];
               updateInterval = 24 * 60 * 60 * 1000; # Once per day
               icon = "https://nixos.org/favicon.ico";
               definedAliases = [ "@np" ];
             };
             "ProtonDB" = {
-              urls = [{ template = "https://www.protondb.com/search?q={searchTerms}"; }];
+              urls = [ { template = "https://www.protondb.com/search?q={searchTerms}"; } ];
               icon = "https://www.protondb.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000; # Once per day
               definedAliases = [ "@pd" ];

@@ -19,11 +19,12 @@
 
         border_size = 2;
 
-        "col.active_border" = "rgba(fb4934ee) rgba(fe8019ee) rgba(fabd2fee) rgba(83a598ee) rgba(d3869bee) 45deg";
+        "col.active_border" =
+          "rgba(fb4934ee) rgba(fe8019ee) rgba(fabd2fee) rgba(83a598ee) rgba(d3869bee) 45deg";
         "col.inactive_border" = "rgba(a89984aa)";
 
         resize_on_border = true;
-        
+
         allow_tearing = false;
 
         layout = "dwindle";

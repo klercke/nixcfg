@@ -5,19 +5,17 @@
 { hostname, stateVersion, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./disk-config.nix
-      ./local-packages.nix
-      ../../nixos/modules
-      ../../nixos/modules/steam.nix
-      ../../nixos/modules/colemak.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./disk-config.nix
+    ./local-packages.nix
+    ../../nixos/modules
+    ../../nixos/modules/steam.nix
+    ../../nixos/modules/colemak.nix
+  ];
 
   networking.hostName = hostname;
 
   system.stateVersion = stateVersion;
 
 }
-

@@ -1,4 +1,5 @@
-{ pkgs, user, ...}: {
+{ pkgs, user, ... }:
+{
   programs = {
     zsh.enable = true;
   };
@@ -7,11 +8,16 @@
     defaultUserShell = pkgs.zsh;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "seat" "gamemode" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "seat"
+        "gamemode"
+      ];
       packages = with pkgs; [
         tree
         nano
-      	vim
+        vim
         git
         just
         dotter

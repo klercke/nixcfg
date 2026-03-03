@@ -17,7 +17,15 @@
     pyproject-build-systems.inputs.pyproject-nix.follows = "pyproject-nix";
   };
 
-  outputs = { self, nixpkgs, uv2nix, pyproject-nix, pyproject-build-systems, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      uv2nix,
+      pyproject-nix,
+      pyproject-build-systems,
+      ...
+    }:
     let
       projectName = "my-project"; # This needs to match package.name in pyproject.toml
 
@@ -41,63 +49,68 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           # Get Python version from pyproject.toml
-          python = pkgs.lib.head (pyproject-nix.lib.util.filterPythonInterpreters {
-            inherit (workspace) requires-python;
-            inherit (pkgs) pythonInterpreters;
-          });
+          python = pkgs.lib.head (
+            pyproject-nix.lib.util.filterPythonInterpreters {
+              inherit (workspace) requires-python;
+              inherit (pkgs) pythonInterpreters;
+            }
+          );
         in
-          (pkgs.callPackage pyproject-nix.build.packages { inherit python; })
-          .overrideScope (nixpkgs.lib.composeManyExtensions [
+        (pkgs.callPackage pyproject-nix.build.packages { inherit python; }).overrideScope (
+          nixpkgs.lib.composeManyExtensions [
             pyproject-build-systems.overlays.default
             uvLockedOverlay
-          ])
-        );
+          ]
+        )
+      );
     in
     {
       devShells = forAllSystems (
         system:
         let
-        pkgs = nixpkgs.legacyPackages.${system};
-        pythonSet = pythonSets.${system}.overrideScope editableOverlay;
-        virtualenv = pythonSet.mkVirtualEnv "${projectName}-env" (
-          workspace.deps.all // {
-          
-          }
-        );
-      in
-      {
-        default = pkgs.mkShell {
-          packages = [
-            virtualenv
-            pkgs.uv
-          ];
-          env = {
-            UV_NO_SYNC = "1";
-            UV_PYTHON = pythonSet.python.interpreter;
-            UV_PYTHON_DOWNLOADS = "never";
-          };
-          shellHook = ''
-            unset PYTHONPATH
-            export REPO_ROOT=$(git rev-parse --show-toplevel)
-          '';
-        };
-      }
-    );
+          pkgs = nixpkgs.legacyPackages.${system};
+          pythonSet = pythonSets.${system}.overrideScope editableOverlay;
+          virtualenv = pythonSet.mkVirtualEnv "${projectName}-env" (
+            workspace.deps.all
+            // {
 
-    packages = forAllSystems (system: {
-      default = pythonSets.${system}.mkVirtualEnv "" (
-        workspace.deps.default // {
-          ${projectName} = [ ];
+            }
+          );
+        in
+        {
+          default = pkgs.mkShell {
+            packages = [
+              virtualenv
+              pkgs.uv
+            ];
+            env = {
+              UV_NO_SYNC = "1";
+              UV_PYTHON = pythonSet.python.interpreter;
+              UV_PYTHON_DOWNLOADS = "never";
+            };
+            shellHook = ''
+              unset PYTHONPATH
+              export REPO_ROOT=$(git rev-parse --show-toplevel)
+            '';
+          };
         }
       );
-    });
 
-    apps = forAllSystems (system: {
-      default = {
-        type = "app";
-        program = "${self.packages.${system}.default}/bin/iac_helper";
-      };
-      iac-helper = self.apps.${system}.default;
-    });
-  };
+      packages = forAllSystems (system: {
+        default = pythonSets.${system}.mkVirtualEnv "" (
+          workspace.deps.default
+          // {
+            ${projectName} = [ ];
+          }
+        );
+      });
+
+      apps = forAllSystems (system: {
+        default = {
+          type = "app";
+          program = "${self.packages.${system}.default}/bin/iac_helper";
+        };
+        iac-helper = self.apps.${system}.default;
+      });
+    };
 }

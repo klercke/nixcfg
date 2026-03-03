@@ -1,14 +1,16 @@
-{ homeStateVersion, user, ... }: 
+{ homeStateVersion, user, ... }:
 let
   userModules = [
     ./${user}.nix
     ./modules/${user}.nix
   ];
-in {
+in
+{
   imports = [
     ./home-packages.nix
     ./modules
-  ] ++ userModules;
+  ]
+  ++ userModules;
 
   home = {
     username = user;

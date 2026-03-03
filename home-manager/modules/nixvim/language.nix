@@ -1,4 +1,5 @@
-{ lib, pkgs, ...}: {
+{ lib, pkgs, ... }:
+{
   config.plugins = {
     treesitter = {
       enable = true;

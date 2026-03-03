@@ -5,17 +5,16 @@
 { hostname, stateVersion, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ./disk-config.nix
-      ./local-packages.nix
-      ../../nixos/modules
-      ../../nixos/modules/amdgpu.nix
-      ../../nixos/modules/gaming.nix
-      ../../nixos/modules/udisks2.nix
-      ../../nixos/modules/zram.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ./disk-config.nix
+    ./local-packages.nix
+    ../../nixos/modules
+    ../../nixos/modules/amdgpu.nix
+    ../../nixos/modules/gaming.nix
+    ../../nixos/modules/udisks2.nix
+    ../../nixos/modules/zram.nix
+  ];
 
   users.users.root.initialHashedPassword = "";
 
@@ -23,4 +22,3 @@
 
   system.stateVersion = stateVersion;
 }
-

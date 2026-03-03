@@ -7,9 +7,20 @@
         layer = "top";
         position = "top";
         height = 30;
-        modules-left = ["idle_inhibitor" "hyprland/workspaces"];
-        modules-center = ["clock"];
-        modules-right = ["cpu" "memory" "disk" "network" "pulseaudio" "battery" "tray"];
+        modules-left = [
+          "idle_inhibitor"
+          "hyprland/workspaces"
+        ];
+        modules-center = [ "clock" ];
+        modules-right = [
+          "cpu"
+          "memory"
+          "disk"
+          "network"
+          "pulseaudio"
+          "battery"
+          "tray"
+        ];
 
         "hyprland/workspaces" = {
           disable-scroll = true;
@@ -17,7 +28,7 @@
           special-visible-only = true;
           all-outputs = false;
         };
-        
+
         "cpu" = {
           format = " {usage}%";
           on-click = "ghostty -e btop";
@@ -74,7 +85,10 @@
             "phone" = "";
             "portable" = "";
             "car" = "";
-            "default" = ["" ""];
+            "default" = [
+              ""
+              ""
+            ];
           };
           on-click = "pavucontrol";
         };
@@ -87,7 +101,13 @@
           format = "{icon} {capacity}%";
           format-charging = " {capacity}%";
           format-alt = "{time} {icon}";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "clock" = {

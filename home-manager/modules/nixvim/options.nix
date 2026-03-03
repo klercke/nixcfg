@@ -1,4 +1,8 @@
-let indent = 2; in { lib, ... }: {
+let
+  indent = 2;
+in
+{ lib, ... }:
+{
   config.globals.mapleader = " ";
   config.opts = {
     number = true;
@@ -24,7 +28,11 @@ let indent = 2; in { lib, ... }: {
       mode = "n";
       key = "<leader>d";
       action = lib.nixvim.mkRaw "vim.diagnostic.open_float";
-      options = { noremap = true; silent = true; desc = "Show diagnostics"; };
+      options = {
+        noremap = true;
+        silent = true;
+        desc = "Show diagnostics";
+      };
     }
     {
       mode = "n";
@@ -34,7 +42,9 @@ let indent = 2; in { lib, ... }: {
           require("which-key").show({ global = false })
         end
       '';
-      options = { desc = "Show keybinds"; };
+      options = {
+        desc = "Show keybinds";
+      };
     }
   ];
 }
