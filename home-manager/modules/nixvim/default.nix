@@ -10,6 +10,7 @@
       ./language.nix
       ./rust.nix
       ./python.nix
+      ./nix.nix
     ];
 
     enable = true;
