@@ -48,7 +48,6 @@
       disko,
       home-manager,
       nur,
-      git-hooks,
       self,
       ...
     }@inputs:
@@ -122,7 +121,7 @@
           ];
         };
 
-      forEachSystem = nixpkgs.lib.genAttrs ([ system ]);
+      forEachSystem = nixpkgs.lib.genAttrs [ system ];
 
     in
     {
@@ -151,7 +150,7 @@
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          config = self.checks.${system}.pre-commit-check.config;
+          inherit (self.checks.${system}.pre-commit-check) config;
           inherit (config) package configFile;
           script = ''
             ${pkgs.lib.getExe package} run --all-files --config ${configFile}
@@ -167,6 +166,8 @@
           src = ./.;
           hooks = {
             nixfmt.enable = true;
+            deadnix.enable = true;
+            statix.enable = true;
           };
         };
       });

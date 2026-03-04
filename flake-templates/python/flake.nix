@@ -5,16 +5,22 @@
     flake-utils.url = "github:numtide/flake-utils";
 
     # Core pyproject-nix ecosystem tools
-    pyproject-nix.url = "github:pyproject-nix/pyproject.nix";
-    uv2nix.url = "github:pyproject-nix/uv2nix";
-    pyproject-build-systems.url = "github:pyproject-nix/build-system-pkgs";
-
-    # Ensure consistent dependencies between these tools
-    pyproject-nix.inputs.nixpkgs.follows = "nixpkgs";
-    uv2nix.inputs.nixpkgs.follows = "nixpkgs";
-    pyproject-build-systems.inputs.nixpkgs.follows = "nixpkgs";
-    uv2nix.inputs.pyproject-nix.follows = "pyproject-nix";
-    pyproject-build-systems.inputs.pyproject-nix.follows = "pyproject-nix";
+    pyproject-nix = {
+      url = "github:pyproject-nix/pyproject.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    uv2nix.url = {
+      url = "github:pyproject-nix/uv2nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        pyproject-build-systems.follows = "pyproject-nix";
+      };
+    };
+    pyproject-build-systems = {
+      url = "github:pyproject-nix/build-system-pkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.pyproject-nix.follows = "pyproject-nix";
+    };
   };
 
   outputs =

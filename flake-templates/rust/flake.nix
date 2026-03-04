@@ -35,17 +35,15 @@
         };
 
         # Create workspace/dev shell
-        workspaceShell = (
-          rustPkgs.workspaceShell {
-            packages = with pkgs; [
-              rustc
-              cargo
-              rust-analyzer
-              clippy
-            ];
-            RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
-          }
-        );
+        workspaceShell = rustPkgs.workspaceShell {
+          packages = with pkgs; [
+            rustc
+            cargo
+            rust-analyzer
+            clippy
+          ];
+          RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
+        };
 
         # Recursive output set for each system
       in
@@ -58,7 +56,7 @@
         packages = {
           # nix build .#${projectName}
           # nix build .#packages.x86_64-linux.${projectName}
-          protochess = (rustPkgs.workspace.${projectName} { });
+          protochess = rustPkgs.workspace.${projectName} { };
           # nix build
           default = packages.${projectName};
         };

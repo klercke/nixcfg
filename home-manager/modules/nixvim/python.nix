@@ -1,5 +1,3 @@
-{ lib, ... }:
-{
-  config.plugins = {
-  };
+_: {
+  config.plugins = _;
 }
