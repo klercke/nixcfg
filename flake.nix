@@ -163,6 +163,7 @@
       # Read-only filesystem and no internet access.
       checks = forEachSystem (system: {
         pre-commit-check = inputs.git-hooks.lib.${system}.run {
+          package = nixpkgs.legacyPackages.${system}.prek;
           src = ./.;
           hooks = {
             nixfmt.enable = true;
