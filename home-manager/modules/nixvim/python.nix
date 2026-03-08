@@ -1,3 +1,0 @@
-_: {
-  config.plugins = _;
-}

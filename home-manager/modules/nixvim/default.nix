@@ -9,7 +9,6 @@
       ./plugins.nix
       ./language.nix
       ./rust.nix
-      ./python.nix
       ./nix.nix
     ];
 
