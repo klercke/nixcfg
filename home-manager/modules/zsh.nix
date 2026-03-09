@@ -48,6 +48,13 @@
           name = "zsh-users/zsh-syntax-highlighting";
           tags = [ "defer:2" ];
         }
+        {
+          name = "plugins/git-auto-fetch";
+          tags = [
+            "defer:2"
+            "from:oh-my-zsh"
+          ];
+        }
       ];
     };
 
