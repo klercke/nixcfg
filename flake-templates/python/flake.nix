@@ -9,7 +9,7 @@
       url = "github:pyproject-nix/pyproject.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    uv2nix.url = {
+    uv2nix = {
       url = "github:pyproject-nix/uv2nix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
