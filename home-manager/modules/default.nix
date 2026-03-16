@@ -2,7 +2,7 @@
   imports = [
     ./zsh.nix
     ./zoxide.nix
-    ./starship.nix
+    ./starship
     ./eza.nix
     ./btop.nix
     ./nixvim
