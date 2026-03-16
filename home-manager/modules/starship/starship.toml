@@ -142,7 +142,7 @@ symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
 [cmd_duration]
-format = '\[[$duration]($style)\]'
+format = '\[[ $duration]($style)\]'
 
 [cpp]
 symbol = " "
