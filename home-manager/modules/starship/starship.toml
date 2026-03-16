@@ -66,9 +66,9 @@ untracked  = "[?${count}](sapphire)"
 stashed    = "[≡${count}](lavender)"
 conflicted = "[✗${count}](red bold)"
 
-ahead      = "[⇡${count} ](teal)"
-behind     = "[⇣${count} ](peach)"
-diverged   = "[⇕⇡${ahead_count}⇣${behind_count} ](mauve)"
+ahead      = "[⇡${count}](teal)"
+behind     = "[⇣${count}](peach)"
+diverged   = "[⇕⇡${ahead_count}⇣${behind_count}](mauve)"
 
 [direnv]
 disabled = true
@@ -216,7 +216,7 @@ format = '\[[\($hash$tag\)]($style)\]'
 [git_metrics]
 disabled = false
 only_nonzero_diffs = true
-format = '(\[[+$added]($added_style)\])(\[[-$deleted]($deleted_style)\])'
+format = '(\[[+$added]($added_style)/[-$deleted]($deleted_style)\])'
 
 [gleam]
 format = '\[[$symbol($version)]($style)\]'
