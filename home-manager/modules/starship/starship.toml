@@ -141,6 +141,9 @@ format = '\[[$symbol($version(-$name))]($style)\]'
 symbol = " "
 format = '\[[$symbol($version)]($style)\]'
 
+[cmd_duration]
+format = '\[[$duration]($style)\]'
+
 [cpp]
 symbol = " "
 format = '\[[$symbol($version(-$name))]($style)\]'
