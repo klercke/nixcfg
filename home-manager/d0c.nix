@@ -25,6 +25,9 @@
     # Gaming
     r2modman
 
+    # Misc. Utilities
+    caligula
+
     # WM Things
     brightnessctl
     dconf
