@@ -17,9 +17,10 @@ style = "cyan"
 [fill]
 disabled = false
 symbol = "."
+style = "bright-black"
 
 [directory]
-style = "sapphire"
+style = "bright-cyan"
 format = "[$path]($style)"
 truncation_length = 4
 read_only = " 󰌾"
