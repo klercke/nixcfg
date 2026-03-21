@@ -12,7 +12,7 @@ $username$hostname($shell) $directory $character"""
 [shell]
 disabled = false
 format = '[\($indicator\)]($style)'
-style = "teal"
+style = "cyan"
 
 [fill]
 disabled = false
@@ -28,7 +28,7 @@ read_only = " 󰌾"
 disabled = false
 show_always = false
 style_user = "fg:green"
-style_root = "fg:red"
+style_root = "fg:bright-red"
 format = "[$user]($style)"
 
 [hostname]
@@ -60,13 +60,13 @@ staged     = "[+${count}](green)"
 modified   = "[!${count}](yellow)"
 renamed    = "[»${count}](blue)"
 deleted    = "[-${count}](red)"
-untracked  = "[?${count}](sapphire)"
-stashed    = "[≡${count}](lavender)"
-conflicted = "[✗${count}](red bold)"
+untracked  = "[?${count}](bright-blue)"
+stashed    = "[≡${count}](magenta)"
+conflicted = "[✗${count}](bright-red bold)"
 
-ahead      = "[⇡${count}](teal)"
-behind     = "[⇣${count}](peach)"
-diverged   = "[⇕⇡${ahead_count}⇣${behind_count}](mauve)"
+ahead      = "[⇡${count}](bright-cyan)"
+behind     = "[⇣${count}](bright-magenta)"
+diverged   = "[⇕⇡${ahead_count}⇣${behind_count}](bright-yellow)"
 
 [direnv]
 disabled = true
@@ -268,7 +268,6 @@ format = '\[[$symbol($version)]($style)\]'
 [nix_shell]
 symbol = "󱄅 "
 format = '\[[$symbol$name]($style)\]'
-style = "blue"
 
 [nodejs]
 symbol = " "
