@@ -6,8 +6,6 @@ command_timeout = 500
 follow_symlinks = false
 add_newline = true
 
-palette = "gruvbox_dark"
-
 format = """$all$fill$time
 $username$hostname($shell) $directory $character"""
 
@@ -73,43 +71,6 @@ diverged   = "[⇕⇡${ahead_count}⇣${behind_count}](mauve)"
 [direnv]
 disabled = true
 format = '\[[$symbol$allowed]($style)\]'
-
-# Colorscheme
-
-[palettes.gruvbox_dark]
-# === Background ===
-crust = "#1d2021"
-mantle = "#282828"
-base = "#fbf1c7"
-
-surface0 = "#3c3836"
-surface1 = "#504945"
-surface2 = "#665c54"
-
-overlay0 = "#7c6f64"
-overlay1 = "#a89984"
-overlay2 = "#bdae93"
-
-# === Text ===
-text = "#ebdbb2"
-subtext0 = "#d5c4a1"
-subtext1 = "#fbf1c7"
-
-# === Accents ===
-rosewater = "#fbf1c7"
-flamingo = "#fe8019"
-pink = "#d3869b"
-mauve = "#d3869b"
-red = "#cc241d"
-maroon = "#fb4934"
-peach = "#fe8019"
-yellow = "#d79921"
-green = "#98971a"
-teal = "#8ec07c"
-sky = "#8ec07c"
-sapphire = "#83a598"
-blue = "#458588"
-lavender = "#d3869b"
 
 # Nerdfont symbols + bracketed segments
 
