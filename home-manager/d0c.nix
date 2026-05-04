@@ -18,6 +18,7 @@
     gimp
     obs-studio
     obsidian
+    kdePackages.okular
     prismlauncher
     thunderbird
     webcord
