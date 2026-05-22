@@ -23,6 +23,9 @@
     thunderbird
     webcord
 
+    # Development
+    jq
+
     # Gaming
     r2modman
 
