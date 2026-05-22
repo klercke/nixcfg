@@ -10,7 +10,7 @@
     ./disk-config.nix
     ./local-packages.nix
     ../../nixos/modules
-    ../../nixos/modules/steam.nix
+    ../../nixos/modules/gaming.nix
     ../../nixos/modules/colemak.nix
   ];
 
