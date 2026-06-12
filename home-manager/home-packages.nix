@@ -28,6 +28,7 @@ let
 
     # Misc. homelab tools
     xorriso # needed for proxmox auto install asst.
+    john
 
     # Networking tools
     bind

@@ -1,6 +1,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+    configType = "hyprlang";
     xwayland.enable = true;
     systemd.enable = true;
 
@@ -57,7 +58,6 @@
       };
 
       dwindle = {
-        pseudotile = true;
         preserve_split = true;
         force_split = 2;
       };
