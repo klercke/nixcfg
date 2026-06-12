@@ -26,6 +26,9 @@ let
     glab
     hyperfine
 
+    # Misc. homelab tools
+    xorriso # needed for proxmox auto install asst.
+
     # Networking tools
     bind
     iperf3
@@ -36,6 +39,7 @@ let
     # Any time I use a package from nixpkgs-unstable, I will comment why
 
     fastfetch # My MR to add 6 colors to the NixOS logo is not in stable nixpkgs yet
+    proxmox-auto-install-assistant # Testing to see if the latest version fixes my issue with pdm
   ];
 in
 {
