@@ -34,7 +34,12 @@ let
     # Networking tools
     bind
     iperf3
+    proton-vpn
+    traceroute
     whois
+
+    # Photography
+    darktable
   ];
 
   unstablePkgs = with pkgs-unstable; [
