@@ -13,6 +13,7 @@
         "networkmanager"
         "seat"
         "gamemode"
+        "dialout"
       ];
       packages = with pkgs; [
         tree
