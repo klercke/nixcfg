@@ -14,6 +14,7 @@ let
     # CLI utils
     bat
     bat-extras.batman
+    croc
     fastfetch
     fd
     fzf
