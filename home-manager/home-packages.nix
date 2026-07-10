@@ -8,6 +8,9 @@ let
     # Categories are sorted alphabetically
     # Packages are soted alphabetically within categories
 
+    # Audio
+    blanket
+
     # CLI utils
     bat
     bat-extras.batman
