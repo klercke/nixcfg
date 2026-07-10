@@ -10,6 +10,7 @@
       ./language.nix
       ./rust.nix
       ./nix.nix
+      ./markdown.nix
     ];
 
     enable = true;
