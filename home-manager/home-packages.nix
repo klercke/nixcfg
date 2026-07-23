@@ -27,9 +27,12 @@ let
     zoxide
 
     # Dev tools
+    age
     bacon
     glab
     hyperfine
+    psmisc
+    sops
 
     # Misc. homelab tools
     xorriso # needed for proxmox auto install asst.
