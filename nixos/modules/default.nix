@@ -14,5 +14,6 @@
     ./env.nix
     ./nix-ld.nix
     ./firewall.nix
+    ./storage-optimization.nix
   ];
 }
