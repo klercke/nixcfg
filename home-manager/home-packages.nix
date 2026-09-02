@@ -35,9 +35,6 @@ let
     psmisc
     sops
 
-    # Just for fun
-    pyroclear
-
     # Misc. desktop tools
     xdg-utils
 
