@@ -15,7 +15,6 @@ let
     bat
     bat-extras.batman
     croc
-    fastfetch
     fd
     fzf
     imagemagick

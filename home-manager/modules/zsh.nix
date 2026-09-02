@@ -74,7 +74,6 @@
         zshConfigEarlyInit = lib.mkOrder 500 "";
         zshConfigLateInit = lib.mkOrder 1500 "";
         zshConfigInit = lib.mkOrder 1000 ''
-          command -v fastfetch >/dev/null && fastfetch --logo-color-1 "#cc241d" --logo-color-2 "#fe8019" --logo-color-3 "#d79921" --logo-color-4 "#98971a" --logo-color-5 "#458588" --logo-color-6 "#b16286"
           eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
         '';
       in

@@ -11,6 +11,5 @@
     ./zellij.nix
     ./direnv.nix
     ./delta.nix
-    ./pyroclear.nix
   ];
 }
