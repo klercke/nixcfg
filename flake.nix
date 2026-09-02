@@ -39,6 +39,8 @@
       url = "github:cachix/git-hooks.nix";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pyroclear.url = "github:shreyanth-sureshkrishnaa/pyroclear";
   };
 
   outputs =
@@ -104,7 +106,10 @@
           homeStateVersion,
         }:
         home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ inputs.pyroclear.overlays.default ];
+          };
           extraSpecialArgs = {
             inherit
               inputs

@@ -31,8 +31,12 @@ let
     bacon
     glab
     hyperfine
+    jq
     psmisc
     sops
+
+    # Just for fun
+    pyroclear
 
     # Misc. desktop tools
     xdg-utils
@@ -48,9 +52,6 @@ let
     tcpdump
     traceroute
     whois
-
-    # Photography
-    darktable
   ];
 
   unstablePkgs = with pkgs-unstable; [
