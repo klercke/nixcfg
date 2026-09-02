@@ -18,6 +18,7 @@
     ../../nixos/modules/webusb.nix
     ../../nixos/modules/qdmr.nix
     ../../nixos/modules/lix.nix
+    ../../nixos/modules/noctalia-greeter.nix
   ];
 
   users.users.root.initialHashedPassword = "";

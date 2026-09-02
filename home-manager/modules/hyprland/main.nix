@@ -1,6 +1,11 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
+
+    # The package is installed in the noctalia-greeter.nix nixos module
+    package = null;
+    portalPackage = null;
+
     configType = "hyprlang";
     xwayland.enable = true;
     systemd.enable = true;

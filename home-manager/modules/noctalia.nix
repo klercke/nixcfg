@@ -19,7 +19,7 @@
         enabled = true;
         # Managed by Stylix
         #default.path = "https://gitlab.com/exorcist365/wallpapers/-/raw/master/gruvbox/forest-4.jpg";
-        fill_mode = "fit";
+        fill_mode = "fill";
       };
     };
   };
