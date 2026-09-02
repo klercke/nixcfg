@@ -34,6 +34,9 @@ let
     psmisc
     sops
 
+    # Misc. desktop tools
+    xdg-utils
+
     # Misc. homelab tools
     xorriso # needed for proxmox auto install asst.
     john
@@ -42,6 +45,7 @@ let
     bind
     iperf3
     proton-vpn
+    tcpdump
     traceroute
     whois
 

@@ -29,7 +29,7 @@
 
     signing = {
       signByDefault = true;
-      key = "249DF839A80D37DD";
+      key = "9A0AA323503343D2";
     };
   };
 }
