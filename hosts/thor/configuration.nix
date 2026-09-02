@@ -17,6 +17,7 @@
     ../../nixos/modules/rootless_docker.nix
     ../../nixos/modules/webusb.nix
     ../../nixos/modules/qdmr.nix
+    ../../nixos/modules/lix.nix
   ];
 
   users.users.root.initialHashedPassword = "";
