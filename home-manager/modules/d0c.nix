@@ -7,7 +7,6 @@
     ./ghostty.nix
     ./wofi
     ./stylix.nix
-    ./waybar
     ./xdg-terminal-exec.nix
     ./btop.nix
     ./nixvim
@@ -19,6 +18,7 @@
     ./delta.nix
     ./pyroclear.nix
     ./fastfetch
+    ./noctalia.nix
   ];
 
   programs.git = {

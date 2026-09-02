@@ -11,7 +11,7 @@
       "$menu" = "wofi --show drun";
 
       exec-once = [
-        "waybar"
+        "noctalia"
       ];
 
       general = {

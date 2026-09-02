@@ -17,7 +17,7 @@
     };
 
     stylix = {
-      url = "github:nix-community/stylix/release-26.05";
+      url = "github:nix-community/stylix"; # this was pinned to 26.05 but that doesn't support noctalia
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -40,7 +40,15 @@
       #inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pyroclear.url = "github:shreyanth-sureshkrishnaa/pyroclear";
+    pyroclear = {
+      url = "github:shreyanth-sureshkrishnaa/pyroclear";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+      inputs.nixpkgs.follows = "nixpkgs"; # this line is optional, prevents downloading two versions of nixpkgs but disables cache
+    };
   };
 
   outputs =

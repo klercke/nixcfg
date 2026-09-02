@@ -15,6 +15,7 @@
 
   stylix = {
     enable = true;
+    enableReleaseChecks = false;
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
 
@@ -43,8 +44,8 @@
     };
 
     image = pkgs.fetchurl {
-      url = "raw.githubusercontent.com/lunik1/nixos-logo-gruvbox-wallpaper/refs/heads/master/png/gruvbox-dark-rainbow.png";
-      sha256 = "ec232e1139ed8955022a1508749cd7fac7f7178ec6bee5f66bad68e316c4cf0c";
+      url = "https://gitlab.com/exorcist365/wallpapers/-/raw/master/gruvbox/forest-4.jpg";
+      sha256 = "9aaaf046f26644b2b78b21225e66b0e5440f7ed11aaa0df7361c33a59bf25f0b";
     };
   };
 }
