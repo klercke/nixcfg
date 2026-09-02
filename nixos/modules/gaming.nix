@@ -28,5 +28,11 @@
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
     protontricks.enable = true;
+
+    package = pkgs.steam.override {
+      extraEnv = {
+        GAMEMODRUN = "1";
+      };
+    };
   };
 }
