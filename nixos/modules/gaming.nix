@@ -25,6 +25,7 @@
 
   environment.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATH = "\\\${HOME}/.steam/root/compatibilitytools.d";
+    DOTNET_ROOT = "${pkgs.dotnetCorePackages.runtime_9_0}/share/dotnet";
   };
 
   programs = {
@@ -53,9 +54,9 @@
         fontconfig
         freetype
         libGL
-        xorg.libX11
-        xorg.libICE
-        xorg.libSM
+        libX11
+        libICE
+        libSM
       ];
     };
   };
