@@ -148,7 +148,7 @@
     },
     {
       "type": "localip",
-      "showIpv6": false,
+      "showIpv6": true,
       "key": "› IPV6",
       "keyColor": "cyan",
       "showPrefixLen": true,

@@ -19,6 +19,9 @@
     ../../nixos/modules/qdmr.nix
     ../../nixos/modules/lix.nix
     ../../nixos/modules/noctalia-greeter.nix
+    ../../nixos/modules/zapp.nix
+    ../../nixos/modules/sim-controllers.nix
+    ../../nixos/modules/polkit.nix
   ];
 
   users.users.root.initialHashedPassword = "";

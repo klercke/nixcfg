@@ -3,8 +3,8 @@
     ./zsh.nix
     ./zoxide.nix
     ./eza.nix
-    ./hyprland
     ./ghostty.nix
+    ./hyprland
     ./wofi
     ./stylix.nix
     ./xdg-terminal-exec.nix
@@ -19,6 +19,8 @@
     ./pyroclear.nix
     ./fastfetch
     ./noctalia.nix
+    ./umbriel.nix
+    ./elite-dangerous.nix
   ];
 
   programs.git = {

@@ -67,4 +67,9 @@
       };
     };
   };
+
+  fileSystems."/games" = {
+    device = "/dev/disk/by-uuid/ab81e7ff-32b8-43cf-99c9-6c0aa58b0f81";
+    fsType = "ext4";
+  };
 }

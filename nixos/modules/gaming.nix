@@ -19,6 +19,7 @@
     dotnetCorePackages.runtime_9_0
     protontricks
     winetricks
+    wineWow64Packages.stable
     xrandr
     p7zip
   ];
@@ -36,6 +37,10 @@
       localNetworkGameTransfers.openFirewall = true;
       gamescopeSession.enable = true;
       protontricks.enable = true;
+
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+      ];
 
       package = pkgs.steam.override {
         extraEnv = {
@@ -57,6 +62,29 @@
         libX11
         libICE
         libSM
+        glib
+        nss
+        nspr
+        dbus
+        atk
+        at-spi2-atk
+        at-spi2-core
+        cups
+        libdrm
+        expat
+        libxkbcommon
+        pango
+        cairo
+        alsa-lib
+        lz4
+        libgbm
+        libx11
+        libxcomposite
+        libxdamage
+        libxext
+        libxfixes
+        libxrandr
+        libxcb
       ];
     };
   };

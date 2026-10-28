@@ -54,6 +54,16 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
+
+    zapp = {
+      url = "github:zsa/zapp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

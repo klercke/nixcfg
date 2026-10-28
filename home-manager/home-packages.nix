@@ -28,6 +28,7 @@ let
     # Dev tools
     age
     bacon
+    gh
     glab
     hyperfine
     jq
@@ -52,6 +53,8 @@ let
 
   unstablePkgs = with pkgs-unstable; [
     # Any time I use a package from nixpkgs-unstable, I will comment why
+
+    opencode # Development happens fast
 
     proxmox-auto-install-assistant # Testing to see if the latest version fixes my issue with pdm
   ];

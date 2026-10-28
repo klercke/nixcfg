@@ -13,13 +13,13 @@ let
     calibre
     chromium
     darktable
-    firefox
     gimp
     kdePackages.kleopatra
     obs-studio
     obsidian
     kdePackages.okular
     prismlauncher
+    rpi-imager
     thunderbird
 
     # Gaming
@@ -38,7 +38,8 @@ let
     # Any time I use a package from nixpkgs-unstable, I will comment why
 
     # Misc. destkop apps
-    webcord
+    music-assistant-desktop # App is alpha
+    webcord # Stable version stopped loading for me
   ];
 in
 {
@@ -47,6 +48,7 @@ in
     pkg:
     builtins.elem (lib.getName pkg) [
       "obsidian"
+      "edhm-ui"
     ];
 
   home.packages = stablePkgs ++ unstablePkgs;
