@@ -60,13 +60,13 @@ let
   # Unfree. EDHM-UI installs the mod into the game dir itself.
   enableEdhm = true;
   # 3.0.72 in nixpkgs bundles EDHM v22.03, which darkens the first letter of
-  # status labels on 4.4.2.0+. 3.0.74 bundles v22.04 with the fix. Same
-  # Electron, so only version/src change. Drop when nixpkgs catches up.
+  # status labels on 4.4.2.0+. 3.0.74 was pulled upstream; 3.0.75 replaces it.
+  # Same Electron, so only version/src change. Drop when nixpkgs catches up.
   edhmPkg = pkgs.edhm-ui.overrideAttrs {
-    version = "3.0.74";
+    version = "3.0.75";
     src = pkgs.fetchzip {
-      url = "https://github.com/BlueMystical/EDHM_UI/releases/download/v3.0.74/edhm-ui-v3-linux-x64.zip";
-      hash = "sha256-U9CJq4+e7f0ngTQTsUEeGds0gw34s6s9geIo7PV0wmQ=";
+      url = "https://github.com/BlueMystical/EDHM_UI/releases/download/v3.0.75/edhm-ui-v3-linux-x64.zip";
+      hash = "sha256-hc3rF641jdk+qPKyiy6KKMU4xHz2hwE3GS7nyajP5BY=";
     };
   };
 
