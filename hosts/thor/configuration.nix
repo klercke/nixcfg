@@ -22,6 +22,7 @@
     ../../nixos/modules/zapp.nix
     ../../nixos/modules/sim-controllers.nix
     ../../nixos/modules/polkit.nix
+    ../../nixos/modules/llm-worker.nix
   ];
 
   users.users.root.initialHashedPassword = "";
@@ -29,4 +30,9 @@
   networking.hostName = hostname;
 
   system.stateVersion = stateVersion;
+
+  protonet.llmWorker = {
+    enable = true;
+    port = 8467;
+  };
 }

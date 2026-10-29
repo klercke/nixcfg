@@ -253,6 +253,23 @@
         "type": "gitlab"
       }
     },
+    "hlac": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793236788,
+        "narHash": "sha256-edF1dwj+V1eU6eDjSyhFRnBIUdgFHwcxgDHb1GJg8b8=",
+        "owner": "klercke",
+        "repo": "homelab-as-code",
+        "rev": "5008e1196d340aebfd051282113e9232aadfedf9",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "klercke",
+        "ref": "feature/llm-gateway",
+        "repo": "homelab-as-code",
+        "type": "gitlab"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -491,6 +508,7 @@
       "inputs": {
         "disko": "disko",
         "git-hooks": "git-hooks",
+        "hlac": "hlac",
         "home-manager": "home-manager",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",

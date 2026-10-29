@@ -64,6 +64,11 @@
       url = "github:zsa/zapp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hlac = {
+      url = "gitlab:klercke/homelab-as-code?ref=feature/llm-gateway"; # switch to main once merged
+      flake = false;
+    };
   };
 
   outputs =
