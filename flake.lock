@@ -256,16 +256,15 @@
     "hlac": {
       "flake": false,
       "locked": {
-        "lastModified": 1793239002,
-        "narHash": "sha256-z/ilS0Y/WccwZlk4DJ66fxO6lL0vZK9yuFV6GYJkW/8=",
+        "lastModified": 1793291569,
+        "narHash": "sha256-dbzypNj3ld4baIyDSv+XcOA96LaD1ehuLcwdYfgKa2c=",
         "owner": "klercke",
         "repo": "homelab-as-code",
-        "rev": "cebd81f0e5bd5bbf28f2fe02a1766e92ce18d6b5",
+        "rev": "ca3aa52d0f30d4d300054551dcab0f437fa34cb0",
         "type": "gitlab"
       },
       "original": {
         "owner": "klercke",
-        "ref": "feature/llm-gateway",
         "repo": "homelab-as-code",
         "type": "gitlab"
       }

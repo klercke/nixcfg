@@ -24,8 +24,11 @@ let
   # "/edo" = Odyssey, "/edh4" = Horizons 4.0
   product = "/edo";
 
-  # Must take the command to run as trailing args
-  terminal = "ghostty -e";
+  # Terminal to show the launcher in, e.g. "ghostty -e". Must take the command
+  # to run as trailing args. null = no window (output still goes to
+  # ~/.local/state/min-ed-launcher/min-ed-launcher.log). A ghostty update
+  # broke launching entirely, so default to null.
+  terminal = null;
 
   # Keep these two on the same nixpkgs, or plugin deps get built for the
   # wrong Python
@@ -301,10 +304,19 @@ let
         inherit (edmcPkg) meta;
       };
 
-  # Steam's LD_LIBRARY_PATH breaks EDMC's Tk UI
+  # Started from the launcher, EDMC inherits Steam's environment: its
+  # LD_LIBRARY_PATH breaks EDMC's Tk UI, and its LD_PRELOAD injects the Steam
+  # overlay into EDMC. Without a terminal there's nowhere for errors to go, so
+  # log them.
+  edmcLog = "${config.xdg.stateHome}/edmc-launch.log";
   edmc-launch = pkgs.writeShellScriptBin "edmc-launch" ''
-    unset LD_LIBRARY_PATH
-    exec ${lib.getExe edmc} "$@"
+    unset LD_LIBRARY_PATH LD_PRELOAD
+    if [ -t 2 ]; then
+      exec ${lib.getExe edmc} "$@"
+    fi
+    mkdir -p "$(dirname "${edmcLog}")"
+    echo "=== $(date -Is) edmc-launch" >> "${edmcLog}"
+    exec ${lib.getExe edmc} "$@" >> "${edmcLog}" 2>&1
   '';
 
   # jpackage bundle with its own JRE; JavaFX dlopens GTK/GL, so run it in an
@@ -377,8 +389,13 @@ let
 
   melSettingsFile = pkgs.writeText "min-ed-launcher-settings.json" (builtins.toJSON melSettings);
 
-  # Clear LD_LIBRARY_PATH for the terminal, restore it for Proton
-  launchOptions = ''LD_LIBRARY_PATH="" ${terminal} env LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ${melBin} %command% ${product} /autorun /autoquit waitForExit'';
+  launcherArgs = "${melBin} %command% ${product} /autorun /autoquit waitForExit";
+  # With a terminal: clear LD_LIBRARY_PATH for it, restore it for Proton
+  launchOptions =
+    if terminal == null then
+      launcherArgs
+    else
+      ''LD_LIBRARY_PATH="" ${terminal} env LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ${launcherArgs}'';
 
   pluginInstall =
     name: src:

@@ -66,7 +66,7 @@
     };
 
     hlac = {
-      url = "gitlab:klercke/homelab-as-code?ref=feature/llm-gateway"; # switch to main once merged
+      url = "gitlab:klercke/homelab-as-code";
       flake = false;
     };
   };
