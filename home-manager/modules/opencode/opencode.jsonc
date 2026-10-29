@@ -8,13 +8,31 @@
 
   // No accidental leaks
   "share": "disabled",
+
   "lsp": true,
 
-  // Everything routes through the ProtoNet gateway (LiteLLM on llm01)
-  "model": "protonet/local-coder",
+  // Everything routes through the ProtoNet gateway (LiteLLM on llm01).
+  // Fallback for anything without its own model; agents below override it.
+  "model": "protonet/gpt-oss-20b",
 
-  // Titles and summaries: cheap, and works when thor is off
-  "small_model": "protonet/haiku",
+  // Titles and summaries. Forces a model swap on thor while a local agent
+  // is working; switch to protonet/haiku if the pauses get annoying.
+  "small_model": "protonet/qwen-9b",
+
+  "agent": {
+    // Local pair on thor
+    "plan": {
+      "mode": "primary",
+      "model": "protonet/gpt-oss-20b",
+      "description": "Plan with gpt-oss on thor. Read-only.",
+      "permission": { "edit": "deny", "bash": "ask" }
+    },
+    "build": {
+      "mode": "primary",
+      "model": "protonet/devstral-small-24b",
+      "description": "Build with Devstral on thor."
+    }
+  },
 
   "provider": {
     "protonet": {
@@ -22,18 +40,59 @@
       "name": "ProtoNet LLM gateway",
       "options": {
         "baseURL": "https://llm.int.ptxe.dev/v1",
-
         // Scoped LiteLLM key, kept outside the repo until sops exists
         "apiKey": "{file:~/.config/opencode/litellm.key}"
       },
+      // Keys must match registries/models.yaml in hlac
       "models": {
-        "local-coder": {
+        "gpt-oss-20b": {
           "name": "gpt-oss 20B (thor)",
+          "reasoning": true,
+          "tool_call": true,
           "limit": { "context": 32768, "output": 8192 }
         },
-        "haiku": { "name": "Claude Haiku 5.5" },
+        "devstral-small-24b": {
+          "name": "Devstral Small 2 24B (thor)",
+          "tool_call": true,
+          "limit": { "context": 24576, "output": 8192 }
+        },
+        "gemma-moe": {
+          "name": "Gemma 4 26B-A4B (thor)",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": { "context": 16384, "output": 4096 }
+        },
+        "gemma-12b": {
+          "name": "Gemma 4 12B (thor)",
+          "tool_call": true,
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": { "context": 65536, "output": 8192 }
+        },
+        "qwen-9b": {
+          "name": "Qwen3.5 9B (thor)",
+          "reasoning": true,
+          "tool_call": true,
+          "attachment": true,
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "limit": { "context": 65536, "output": 8192 }
+        },
+        "qwen-27b": {
+          "name": "Qwen3.8 27B Q3 (thor)",
+          "reasoning": true,
+          "tool_call": true,
+          "limit": { "context": 16384, "output": 4096 }
+        },
+        "gemma-12b-abliterated": {
+          "name": "Gemma 4 12B abliterated (thor)",
+          "tool_call": true,
+          "limit": { "context": 32768, "output": 8192 }
+        },
+        "opus": { "name": "Claude Opus 5.5" },
         "sonnet": { "name": "Claude Sonnet 5.5" },
-        "opus": { "name": "Claude Opus 5.5" }
+        "haiku": { "name": "Claude Haiku 5.5" }
       }
     }
   },
