@@ -72,7 +72,8 @@ let
             | with_entries(select(.value.worker == strenv(WORKER)))
             | map_values({
                 "cmd": strenv(LLAMA_SERVER) + " --port ''${PORT} -hf " + .hf
-                       + " -ngl 99 -c " + (.ctx | tostring) + " --jinja",
+                            + " -ngl 99 -c " + (.ctx | tostring) + " --jinja"
+                            + ((" " + .args) // ""),
                 "ttl": .ttl
               }))
         }' "$models" > $out
