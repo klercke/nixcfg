@@ -10,7 +10,7 @@
 - Modulear/dendritic pattern based on @mightyiam's [dendritic](https://github.com/mightyiam/dendritic) repo
 
 ## Future Plans
-- [ ] Migrate to dendritic pattern
+- [x] Migrate to dendritic pattern
 - [ ] Add CI pipeline (for fun!)
   - [ ] flake check
   - [ ] nixfmt
@@ -25,4 +25,6 @@
 - [ ] Add server configurations
 - [ ] Try NVF instead of NixVim
 - [ ] Add support for multiple users per host?
-- [ ] Move any user packages from nixos configuration to home-manager
+- [x] Move any user packages from nixos configuration to home-manager
+- [ ] After NixOS 26.11: move Stylix to its NixOS module once its release branch supports noctalia
+- [ ] After NixOS 26.11: enable `home-manager.useGlobalPkgs` and move the remaining Home Manager overlays (pyroclear, NUR, unstable) to NixOS
