@@ -1,6 +1,6 @@
 {
   flake.modules.homeManager.firefox =
-    { pkgs, config, ... }:
+    { config, ... }:
     {
       programs.firefox = {
         enable = true;
@@ -44,6 +44,22 @@
               Status = "locked";
             };
           };
+
+          ExtensionSettings =
+            let
+              ext = slug: area: {
+                install_url = "https://addons.mozilla.org/firefox/downloads/latest/${slug}/latest.xpi";
+                installation_mode = "force_installed";
+                default_area = area;
+              };
+            in
+            {
+              "uBlock0@raymondhill.net" = ext "ublock-origin" "navbar";
+              "{446900e4-71c2-419f-a6a7-df9c091e268b}" = ext "bitwarden-password-manager" "navbar";
+              "addon@darkreader.org" = ext "darkreader" "navbar";
+              "sponsorBlocker@ajay.app" = ext "sponsorblock" "menupanel";
+              "{1018e4d6-728f-4b20-ad56-37578a4de76b}" = ext "flagfox" "menupanel";
+            };
         };
 
         profiles = {
@@ -51,20 +67,24 @@
             id = 0;
             name = "default";
             isDefault = true;
+
             #settings = {
             #  "browser.startup.homepage" = "https://z3r0d4y.dev";
             #  "browser.search.defaultenginename" = "DuckDuckGo";
             #  "browser.search.order.1" = "DuckDuckGo";
             #};
+
             search = {
               force = true;
               default = "ddg";
+
               order = [
                 "ddg"
                 "NixPkgs"
                 "ProtonDB"
                 "google"
               ];
+
               engines = {
                 "NixPkgs" = {
                   urls = [
@@ -76,6 +96,7 @@
                   icon = "https://nixos.org/favicon.ico";
                   definedAliases = [ "@np" ];
                 };
+
                 "ProtonDB" = {
                   urls = [ { template = "https://www.protondb.com/search?q={searchTerms}"; } ];
                   icon = "https://www.protondb.com/favicon.ico";
@@ -84,14 +105,6 @@
                 };
               };
             };
-
-            extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-              ublock-origin
-              bitwarden
-              darkreader
-              sponsorblock
-            ];
-
           };
         };
       };
