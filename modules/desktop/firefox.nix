@@ -68,11 +68,17 @@
             name = "default";
             isDefault = true;
 
-            #settings = {
-            #  "browser.startup.homepage" = "https://z3r0d4y.dev";
-            #  "browser.search.defaultenginename" = "DuckDuckGo";
-            #  "browser.search.order.1" = "DuckDuckGo";
-            #};
+            settings = {
+              "browser.startup.homepage" = "https://z3r0d4y.dev";
+              "browser.search.defaultenginename" = "DuckDuckGo";
+              "browser.search.order.1" = "DuckDuckGo";
+
+              "browser.uiCustomization.state" = builtins.toJSON (
+                builtins.fromJSON ''
+                  {"placements":{"widget-overflow-fixed-list":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","customizableui-special-spring1","vertical-spacer","urlbar-container","customizableui-special-spring2","reset-pbm-toolbar-button","downloads-button","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","unified-extensions-button","alltabs-button","smartwindow-group-tabs-button","ai-window-toggle"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action"]},"seen":["reset-pbm-toolbar-button","smartwindow-group-tabs-button","ai-window-toggle","addon_darkreader_org-browser-action","screenshot-button","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs"],"currentVersion":28,"newElementCount":7}
+                ''
+              );
+            };
 
             search = {
               force = true;
