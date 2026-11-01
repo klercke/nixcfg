@@ -34,6 +34,8 @@
           greeter_sync.auto_sync = true;
           polkit_agent = true;
         };
+
+        widget.wallpaper.enabled = false;
       };
     };
   };
