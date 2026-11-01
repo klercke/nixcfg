@@ -5,6 +5,47 @@
       programs.firefox = {
         enable = true;
         configPath = "${config.xdg.configHome}/mozilla/firefox";
+
+        policies = {
+          PasswordManagerEnabled = false;
+          OfferToSaveLogins = false;
+          DisableFormHistory = true;
+          AutofillAddressEnabled = false;
+          AutofillCreditCardEnabled = false;
+          DisableFirefoxAccounts = false;
+
+          Preferences = {
+            "signon.rememberSignons" = {
+              Value = false;
+              Status = "locked";
+            };
+            "signon.autofillForms" = {
+              Value = false;
+              Status = "locked";
+            };
+            "signon.generation.enabled" = {
+              Value = false;
+              Status = "locked";
+            };
+            "signon.firefoxRelay.feature" = {
+              Value = "disabled";
+              Status = "locked";
+            };
+            "signon.management.page.breach-alerts.enabled" = {
+              Value = false;
+              Status = "locked";
+            };
+            "extensions.formautofill.addresses.enabled" = {
+              Value = false;
+              Status = "locked";
+            };
+            "extensions.formautofill.creditCards.enabled" = {
+              Value = false;
+              Status = "locked";
+            };
+          };
+        };
+
         profiles = {
           default = {
             id = 0;
@@ -50,6 +91,7 @@
               darkreader
               sponsorblock
             ];
+
           };
         };
       };
