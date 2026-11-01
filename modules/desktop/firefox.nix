@@ -61,6 +61,23 @@
               "{1018e4d6-728f-4b20-ad56-37578a4de76b}" = ext "flagfox" "menupanel";
               "{eb8c4a94-e603-49ef-8e81-73d3c4cc04ff}" = ext "gruvbox-dark-theme" "menupanel";
             };
+
+          Homepage = {
+            URL = "about:home";
+            StartPage = "previous-session";
+            Locked = true;
+          };
+
+          FirefoxHome = {
+            Search = true;
+            TopSites = true;
+            SponsoredTopSites = false;
+            Highlights = false;
+            Pocket = false;
+            SponsoredPocket = false;
+            Snippets = false;
+            Locked = true;
+          };
         };
 
         profiles = {
@@ -70,7 +87,6 @@
             isDefault = true;
 
             settings = {
-              "browser.startup.homepage" = "https://z3r0d4y.dev";
               "browser.search.defaultenginename" = "DuckDuckGo";
               "browser.search.order.1" = "DuckDuckGo";
 
