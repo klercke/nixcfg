@@ -47,8 +47,9 @@
         xdg-utils
 
         # Misc. homelab tools
-        xorriso # needed for proxmox auto install asst.
+        caligula
         john
+        xorriso # needed for proxmox auto install asst.
 
         # Networking tools
         bind
