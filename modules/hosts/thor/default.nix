@@ -45,6 +45,7 @@
       config.flake.modules.nixos.sim-controllers
       config.flake.modules.nixos.polkit
       config.flake.modules.nixos.llm-worker
+      config.flake.modules.nixos.transmission
     ];
 
     networking.hostName = "thor";
