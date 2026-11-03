@@ -10,6 +10,7 @@
       config.flake.modules.homeManager.nixvim-rust
       config.flake.modules.homeManager.nixvim-nix
       config.flake.modules.homeManager.nixvim-markdown
+      config.flake.modules.homeManager.nixvim-latex
     ];
 
     programs.nixvim = {
