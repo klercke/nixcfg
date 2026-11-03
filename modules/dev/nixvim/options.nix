@@ -17,6 +17,8 @@
               shiftwidth = indent;
               smarttab = true;
               expandtab = true;
+              ignorecase = true;
+              smartcase = true;
             };
             keymaps = [
               {
