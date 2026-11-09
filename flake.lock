@@ -260,11 +260,11 @@
     "hlac": {
       "flake": false,
       "locked": {
-        "lastModified": 1793394949,
-        "narHash": "sha256-n64ZgoIO0ioPWJlz70r5MSMPrE340Uf54WnnDQQlqQg=",
+        "lastModified": 1794243722,
+        "narHash": "sha256-+08A5wbQK+Mw9WdlyYLBphOj6GH8Kb6OdyLVmIYi84E=",
         "owner": "klercke",
         "repo": "homelab-as-code",
-        "rev": "8cdb62e4b5ecde16ed9a82380a1b826773a9a961",
+        "rev": "69a1c65da4124ae5115f74d90f9855119add0a03",
         "type": "gitlab"
       },
       "original": {
