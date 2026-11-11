@@ -22,6 +22,7 @@
         glow
         imagemagick
         procs
+        qrencode
         ripgrep
         tldr
         tree
