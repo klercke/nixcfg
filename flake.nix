@@ -61,7 +61,7 @@
     };
 
     hlac = {
-      url = "gitlab:klercke/homelab-as-code";
+      url = "github:klercke/homelab-as-code";
       flake = false;
     };
 
