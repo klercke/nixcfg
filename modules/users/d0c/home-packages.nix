@@ -41,6 +41,7 @@
         jq
         just
         lazygit
+        openssl
         psmisc
         sops
 
