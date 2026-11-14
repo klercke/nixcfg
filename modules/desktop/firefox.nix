@@ -60,6 +60,8 @@
               "sponsorBlocker@ajay.app" = ext "sponsorblock" "menupanel";
               "{1018e4d6-728f-4b20-ad56-37578a4de76b}" = ext "flagfox" "menupanel";
               "{eb8c4a94-e603-49ef-8e81-73d3c4cc04ff}" = ext "gruvbox-dark-theme" "menupanel";
+              "jid1-MnnxcxisBPnSXQ@jetpack" = ext "privacy-badger17" "menupanel";
+              "{b86e4813-687a-43e6-ab65-0bde4ab75758}" = ext "localcdn-fork-of-decentraleyes" "menupanel";
             };
 
           Homepage = {
@@ -92,7 +94,7 @@
 
               "browser.uiCustomization.state" = builtins.toJSON (
                 builtins.fromJSON ''
-                  {"placements":{"widget-overflow-fixed-list":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","customizableui-special-spring1","vertical-spacer","urlbar-container","customizableui-special-spring2","reset-pbm-toolbar-button","downloads-button","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","unified-extensions-button","alltabs-button","smartwindow-group-tabs-button","ai-window-toggle"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action"]},"seen":["reset-pbm-toolbar-button","smartwindow-group-tabs-button","ai-window-toggle","addon_darkreader_org-browser-action","screenshot-button","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs"],"currentVersion":28,"newElementCount":7}
+                  {"placements":{"widget-overflow-fixed-list":[],"nav-bar":["sidebar-button","back-button","forward-button","stop-reload-button","customizableui-special-spring1","vertical-spacer","urlbar-container","customizableui-special-spring2","reset-pbm-toolbar-button","downloads-button","addon_darkreader_org-browser-action","ublock0_raymondhill_net-browser-action","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","unified-extensions-button","alltabs-button","smartwindow-group-tabs-button","ai-window-toggle"],"toolbar-menubar":["menubar-items"],"TabsToolbar":[],"vertical-tabs":["tabbrowser-tabs"],"PersonalToolbar":["personal-bookmarks"],"unified-extensions-area":["sponsorblocker_ajay_app-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","_b86e4813-687a-43e6-ab65-0bde4ab75758_-browser-action"]},"seen":["reset-pbm-toolbar-button","smartwindow-group-tabs-button","ai-window-toggle","addon_darkreader_org-browser-action","screenshot-button","_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action","sponsorblocker_ajay_app-browser-action","ublock0_raymondhill_net-browser-action","jid1-mnnxcxisbpnsxq_jetpack-browser-action","_b86e4813-687a-43e6-ab65-0bde4ab75758_-browser-action"],"dirtyAreaCache":["unified-extensions-area","nav-bar","TabsToolbar","vertical-tabs"],"currentVersion":28,"newElementCount":7}
                 ''
               );
 
