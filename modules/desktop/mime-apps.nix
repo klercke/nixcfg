@@ -5,8 +5,8 @@
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {
-        "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
-        "message/rfc822" = [ "thunderbird.desktop" ];
+        "x-scheme-handler/mailto" = [ "thunderbird-handler.desktop" ];
+        "message/rfc822" = [ "thunderbird-handler.desktop" ];
 
         "text/html" = [ "firefox.desktop" ];
         "x-scheme-handler/http" = [ "firefox.desktop" ];

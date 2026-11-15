@@ -13,5 +13,15 @@
         };
       };
     };
+    xdg.desktopEntries.thunderbird-handler = {
+      name = "Thunderbird";
+      exec = "env -u MOZ_APP_DATA -u MOZ_SYSTEM_DIR -u MOZ_APP_LAUNCHER thunderbird %u";
+      icon = "thunderbird";
+      noDisplay = true;
+      mimeType = [
+        "x-scheme-handler/mailto"
+        "message/rfc822"
+      ];
+    };
   };
 }

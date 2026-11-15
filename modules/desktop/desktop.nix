@@ -16,6 +16,7 @@
       xdg-terminal-exec
       firefox
       thunderbird
+      mime-apps
     ];
   };
 }
