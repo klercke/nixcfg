@@ -18,7 +18,6 @@
 
     home-manager.users.d0c = {
       imports = [
-        config.flake.modules.homeManager.d0c-home-packages
         config.flake.modules.homeManager.d0c-packages
         config.flake.modules.homeManager.pyroclear
         config.flake.modules.homeManager.zsh

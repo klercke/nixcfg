@@ -7,7 +7,28 @@
     let
       stablePkgs = with pkgs; [
         # Categories are sorted alphabetically
-        # Packages are soted alphabetically within categories
+        # Packages are sorted alphabetically within categories
+
+        # Audio
+        blanket
+
+        # CLI utils
+        bat
+        bat-extras.batman
+        croc
+        dust
+        fd
+        fzf
+        glow
+        imagemagick
+        procs
+        qrencode
+        ripgrep
+        tldr
+        tree
+        unzip
+        yt-dlp
+        zip
 
         # Desktop apps
         calibre
@@ -18,26 +39,54 @@
         obs-studio
         obsidian
         kdePackages.okular
-        prismlauncher
         rpi-imager
+
+        # Dev tools
+        age
+        bacon
+        dotter
+        gh
+        glab
+        hyperfine
+        jq
+        just
+        lazygit
+        openssl
+        psmisc
+        sops
 
         # Gaming
         prismlauncher
         r2modman
 
-        # WM Things
+        # Homelab tools
+        caligula
+        john
+        xorriso # needed for proxmox auto install asst.
+
+        # Networking tools
+        bind
+        iperf3
+        proton-vpn
+        tcpdump
+        traceroute
+        whois
+
+        # WM things
         brightnessctl
         dconf
         grimblast
         pavucontrol
         playerctl
+        xdg-utils
       ];
 
       unstablePkgs = with pkgs.unstable; [
         # Any time I use a package from nixpkgs-unstable, I will comment why
 
-        # Misc. destkop apps
         music-assistant-desktop # App is alpha
+        opencode # Development happens fast
+        proxmox-auto-install-assistant # Testing to see if the latest version fixes my issue with pdm
         webcord # Stable version stopped loading for me
       ];
     in
