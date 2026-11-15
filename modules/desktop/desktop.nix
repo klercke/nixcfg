@@ -15,6 +15,7 @@
       wofi
       xdg-terminal-exec
       firefox
+      thunderbird
     ];
   };
 }

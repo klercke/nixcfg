@@ -20,7 +20,6 @@
         kdePackages.okular
         prismlauncher
         rpi-imager
-        thunderbird
 
         # Gaming
         prismlauncher
