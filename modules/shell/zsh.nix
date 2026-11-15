@@ -8,7 +8,7 @@
     };
 
   flake.modules.homeManager.zsh =
-    { pkgs, lib, ... }:
+    { lib, ... }:
     {
       programs.zsh = {
         enable = true;
@@ -68,13 +68,9 @@
           let
             zshConfigEarlyInit = lib.mkOrder 500 "";
             zshConfigLateInit = lib.mkOrder 1500 "";
-            zshConfigInit = lib.mkOrder 1000 ''
-              eval "$(${pkgs.zoxide}/bin/zoxide init zsh --cmd cd)" # this shouldn't be necessary 
-            '';
           in
           lib.mkMerge [
             zshConfigEarlyInit
-            zshConfigInit
             zshConfigLateInit
           ];
       };
