@@ -28,6 +28,7 @@
         tree
         unzip
         yt-dlp
+        yubikey-manager
         zip
 
         # Desktop apps
@@ -75,7 +76,6 @@
         # WM things
         brightnessctl
         dconf
-        grimblast
         pavucontrol
         playerctl
         xdg-utils

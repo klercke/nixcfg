@@ -12,7 +12,6 @@
       umbriel
       stylix
       ghostty
-      wofi
       xdg-terminal-exec
       firefox
       thunderbird

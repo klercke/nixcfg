@@ -40,6 +40,9 @@
 
     system.stateVersion = "25.11";
 
-    home-manager.sharedModules = [ config.flake.modules.homeManager.ptxe-hme-lt-01-hyprland ];
+    home-manager.sharedModules = [
+      config.flake.modules.homeManager.ptxe-hme-lt-01-hyprland
+      config.flake.modules.homeManager.ptxe-hme-lt-01-umbriel
+    ];
   };
 }

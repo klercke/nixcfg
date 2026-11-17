@@ -1,6 +1,24 @@
 {
   flake.modules.homeManager.thor-noctalia = {
     programs.noctalia.settings = {
+      bar.default.monitor.DP-2 = {
+        margin_ends = 10;
+        start = [
+          "workspaces"
+        ];
+        center = [ "clock" ];
+        end = [
+          "notifications"
+          "volume"
+          "control-center"
+        ];
+      };
+
+      widget.active_window_short = {
+        type = "active_window";
+        max_length = 180;
+      };
+
       lockscreen_widgets = {
         enabled = true;
         schema_version = 2;

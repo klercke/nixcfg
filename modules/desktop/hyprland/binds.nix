@@ -6,10 +6,14 @@
         "$mainMod_SHIFT, Q, killactive"
         "$mainMod_SHIFT, M, exit"
         "$mainMod, V, togglefloating"
-        "$mainMod, D, exec, $menu"
-        "$mainMod_SHIFT, L, exec, loginctl lock-session"
+        "$mainMod, D, exec, $noctalia panel-toggle launcher"
+        "$mainMod, S, exec, $noctalia panel-toggle control-center"
+        "$mainMod_SHIFT, V, exec, $noctalia panel-toggle clipboard"
+        "$mainMod, comma, exec, $noctalia settings-toggle"
+        "ALT, Tab, exec, $noctalia window-switcher hold"
+        "$mainMod_SHIFT, L, exec, $noctalia session lock"
         "$mainMod, F, fullscreen"
-        "$mainMod_SHIFT, S, exec, grimblast --notify --freeze copysave area"
+        "$mainMod_SHIFT, S, exec, $noctalia screenshot-region"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
@@ -45,19 +49,19 @@
       ];
 
       bindel = [
-        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioRaiseVolume, exec, $noctalia volume-up"
+        ", XF86AudioLowerVolume, exec, $noctalia volume-down"
+        ", XF86AudioMute, exec, $noctalia volume-mute"
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
-        ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
-        ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+        ", XF86MonBrightnessUp, exec, $noctalia brightness-up"
+        ", XF86MonBrightnessDown, exec, $noctalia brightness-down"
       ];
 
       bindl = [
-        ", XF86AudioNext, exec, playerctl next"
-        ", XF86AudioPause, exec, playerctl play-pause"
-        ", XF86AudioPlay, exec, playerctl play-pause"
-        ", XF86AudioPrev, exec, playerctl previous"
+        ", XF86AudioNext, exec, $noctalia media next"
+        ", XF86AudioPause, exec, $noctalia media toggle"
+        ", XF86AudioPlay, exec, $noctalia media toggle"
+        ", XF86AudioPrev, exec, $noctalia media previous"
       ];
 
       bindm = [

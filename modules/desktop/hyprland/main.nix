@@ -14,7 +14,7 @@
       settings = {
         "$mainMod" = "SUPER";
         "$terminal" = "ghostty";
-        "$menu" = "wofi --show drun";
+        "$noctalia" = "noctalia msg";
 
         exec-once = [
           "noctalia"

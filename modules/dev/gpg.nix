@@ -15,7 +15,7 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        pinentry-curses
+        pinentry-qt
       ];
 
       programs.gpg = {
@@ -30,8 +30,8 @@
         defaultCacheTtl = 60;
         maxCacheTtl = 120;
         pinentry = {
-          package = pkgs.pinentry-curses;
-          program = "pinentry-curses";
+          package = pkgs.pinentry-qt;
+          program = "pinentry-qt";
         };
       };
     };

@@ -62,6 +62,7 @@
     home-manager.sharedModules = [
       config.flake.modules.homeManager.thor-hyprland
       config.flake.modules.homeManager.thor-noctalia
+      config.flake.modules.homeManager.thor-umbriel
     ];
 
     home-manager.users.d0c.imports = [ config.flake.modules.homeManager.elite-dangerous ];

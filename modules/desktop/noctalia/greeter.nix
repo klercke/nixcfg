@@ -1,14 +1,15 @@
 { inputs, ... }:
 {
-  flake.modules.nixos.noctalia-greeter = { pkgs, ... }: {
+  flake.modules.nixos.noctalia-greeter = {
     imports = [
       inputs.noctalia-greeter.nixosModules.default
+      inputs.umbriel.nixosModules.default
     ];
 
-    environment.systemPackages = [
-      pkgs.unstable.umbriel
-      pkgs.xwayland-satellite # required on PATH when general.xwayland = true
-    ];
+    # Package (from the umbriel flake input), session file, systemd user unit,
+    # and xdg-desktop-portal-umbriel all come from the upstream module.
+    # Umbriel wraps its own Xwayland, so xwayland-satellite is no longer needed.
+    programs.umbriel.enable = true;
 
     services.displayManager.noctalia-greeter = {
       enable = true;
@@ -17,19 +18,6 @@
         session.default = "Hyprland";
         appearance.hide_logo = true;
       };
-    };
-
-    # Required because programs.umbriel doesn't exist yet
-    services.displayManager.sessionPackages = [ pkgs.unstable.umbriel ];
-    systemd.packages = [ pkgs.unstable.umbriel ];
-    systemd.user.services.umbriel = {
-      restartIfChanged = false;
-      enableDefaultPath = false;
-    };
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.unstable.xdg-desktop-portal-umbriel ];
-      configPackages = [ pkgs.unstable.xdg-desktop-portal-umbriel ];
     };
   };
 }
