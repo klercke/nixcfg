@@ -8,7 +8,7 @@
         userName = "konnor@klercke.com";
         realName = "Konnor Klercke";
         gpg = {
-          key = "14DD826AC43B2370D1C3BA6A9A0AA323503343D2";
+          key = "06788C66C871D5627E714F9A6D08129B14785597";
           signByDefault = true;
         };
         thunderbird.enable = true;
@@ -20,7 +20,7 @@
         userName = "d0c@z3r0d4y.dev";
         realName = "d0c_z3r0d4y";
         gpg = {
-          key = "14DD826AC43B2370D1C3BA6A9A0AA323503343D2";
+          key = "06788C66C871D5627E714F9A6D08129B14785597";
           signByDefault = true;
         };
         thunderbird.enable = true;

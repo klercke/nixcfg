@@ -56,7 +56,7 @@
 
           signing = {
             signByDefault = true;
-            key = "14DD826AC43B2370D1C3BA6A9A0AA323503343D2";
+            key = "06788C66C871D5627E714F9A6D08129B14785597";
           };
         };
 
@@ -64,7 +64,7 @@
           {
             source = "${builtins.fetchurl {
               url = "https://klercke.com/pgp-key.txt";
-              sha256 = "75f7c6e56436582a1dad19007de3516e9975a1e30633c00af3eb6aef89ef994e";
+              sha256 = "1867y3rhak0pnwvz90faw6aqa2ihysyagavbmkw7jmkhcmmwlm0v";
             }}";
             trust = 5;
           }
