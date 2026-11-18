@@ -9,6 +9,9 @@
         # Categories are sorted alphabetically
         # Packages are sorted alphabetically within categories
 
+        # 3D Printing
+        orca-slicer
+
         # Audio
         blanket
 
