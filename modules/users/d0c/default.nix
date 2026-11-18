@@ -50,7 +50,7 @@
           settings = {
             user = {
               name = "Konnor Klercke";
-              email = "klercke@protonmail.com";
+              email = "konnor@klercke.com";
             };
           };
 
