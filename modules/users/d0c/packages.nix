@@ -81,6 +81,7 @@
         dconf
         pavucontrol
         playerctl
+        wl-clipboard
         xdg-utils
       ];
 
