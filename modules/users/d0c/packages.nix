@@ -11,6 +11,7 @@
 
         # 3D Printing
         orca-slicer
+        prusa-slicer
 
         # Audio
         blanket
