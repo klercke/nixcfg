@@ -1,65 +1,107 @@
 {
+  description = "A Rust project";
+
   inputs = {
-    rust-overlay.url = "github:oxalica/rust-overlay/stable";
-    cargo2nix = {
-      url = "github:cargo2nix/cargo2nix/release-0.12";
-      inputs.rust-overlay.follows = "rust-overlay";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    crane.url = "github:ipetkov/crane";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
-    flake-utils.follows = "cargo2nix/flake-utils";
-    nixpkgs.follows = "cargo2nix/nixpkgs";
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    inputs:
-    with inputs;
-    let
-      projectName = "my-project"; # This needs to match package.name in Cargo.toml
-    in
-    # Build the output set for each default system and map system sets into
-    # attributes, resulting in paths such as:
-    # nix build .#packages.x86_64-linux.<name>
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ inputs.git-hooks-nix.flakeModule ];
 
-        # Create nixpkgs containing rustBuilder from cargo2nix overlay
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ cargo2nix.overlays.default ];
-        };
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
 
-        # Create workspace and dependencies package set
-        rustPkgs = pkgs.rustBuilder.makePackageSet {
-          rustVersion = "1.93.0";
-          packageFun = import ./Cargo.nix;
-        };
+      perSystem =
+        {
+          config,
+          system,
+          pkgs,
+          ...
+        }:
+        let
+          toolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
+          craneLib = (inputs.crane.mkLib pkgs).overrideToolchain (_: toolchain);
+          devtools = import ./nix/devtools.nix { inherit pkgs; };
 
-        # Create workspace/dev shell
-        workspaceShell = rustPkgs.workspaceShell {
-          packages = with pkgs; [
-            rustc
-            cargo
-            rust-analyzer
-            clippy
-          ];
-          RUST_SRC_PATH = "${pkgs.rustPlatform.rustLibSrc}";
-        };
+          commonArgs = {
+            src = craneLib.cleanCargoSource ./.;
+            strictDeps = true;
+          };
 
-        # Recursive output set for each system
-      in
-      rec {
-        devShells = {
-          default = workspaceShell;
-        };
+          cargoArtifacts = craneLib.buildDepsOnly commonArgs;
 
-        # Package build
-        packages = {
-          # nix build .#${projectName}
-          # nix build .#packages.x86_64-linux.${projectName}
-          protochess = rustPkgs.workspace.${projectName} { };
-          # nix build
-          default = packages.${projectName};
+          package = craneLib.buildPackage (
+            commonArgs
+            // {
+              inherit cargoArtifacts;
+              doCheck = false;
+            }
+          );
+        in
+        {
+          _module.args.pkgs = import inputs.nixpkgs {
+            inherit system;
+            overlays = [ inputs.rust-overlay.overlays.default ];
+          };
+
+          packages.default = package;
+
+          checks = {
+            inherit package;
+
+            clippy = craneLib.cargoClippy (
+              commonArgs
+              // {
+                inherit cargoArtifacts;
+                cargoClippyExtraArgs = "--all-targets -- --deny warnings";
+              }
+            );
+
+            nextest = craneLib.cargoNextest (commonArgs // { inherit cargoArtifacts; });
+          };
+
+          pre-commit.settings = {
+            package = pkgs.prek;
+            hooks = {
+              rustfmt = {
+                enable = true;
+                packageOverrides = {
+                  cargo = toolchain;
+                  rustfmt = toolchain;
+                };
+              };
+              nixfmt.enable = true;
+              statix.enable = true;
+              deadnix.enable = true;
+              taplo.enable = true;
+              typos.enable = true;
+              actionlint.enable = true;
+              zizmor.enable = true;
+              convco.enable = true;
+            };
+          };
+
+          devShells.default = craneLib.devShell {
+            inherit (devtools) env;
+            packages = devtools.packages ++ config.pre-commit.settings.enabledPackages;
+            shellHook = config.pre-commit.installationScript;
+          };
+
+          formatter = pkgs.nixfmt;
         };
-      }
-    );
+    };
 }

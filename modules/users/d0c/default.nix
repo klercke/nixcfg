@@ -30,6 +30,7 @@
         config.flake.modules.homeManager.gpg
         config.flake.modules.homeManager.zellij
         config.flake.modules.homeManager.direnv
+        config.flake.modules.homeManager.devshell
         config.flake.modules.homeManager.delta
         config.flake.modules.homeManager.nixvim
         config.flake.modules.homeManager.latex

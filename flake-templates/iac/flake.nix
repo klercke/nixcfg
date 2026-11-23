@@ -1,86 +1,60 @@
 {
-  description = "IaC Dev environment";
+  description = "An infrastructure-as-code project";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/25.11";
-
-    git-hooks = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    git-hooks-nix = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    systems.url = "github:nix-systems/default";
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      systems,
-      ...
-    }@inputs:
-    let
-      forEachSystem = nixpkgs.lib.genAttrs (import systems);
-    in
-    {
-      formatter = forEachSystem (
-        system:
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ inputs.git-hooks-nix.flakeModule ];
+
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+
+      perSystem =
+        { config, pkgs, ... }:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
-          inherit (self.checks.${system}.pre-commit-check) config;
-          inherit (config) package configFile;
-          script = ''
-            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-          '';
+          devtools = import ./nix/devtools.nix { inherit pkgs; };
         in
-        pkgs.writeShellScriptBin "pre-commit-run" script
-      );
-
-      checks = forEachSystem (system: {
-        pre-commit-check = inputs.git-hooks.lib.${system}.run {
-          package = nixpkgs.legacyPackages.${system}.prek;
-          src = ./.;
-          hooks = {
-            terraform-format.enable = true;
-            terraform-validate.enable = true;
-            tflint.enable = true;
+        {
+          pre-commit = {
+            # tflint plugins and ansible-lint collections need the network, which
+            # the sandbox lacks.
+            check.enable = false;
+            settings = {
+              package = pkgs.prek;
+              hooks = {
+                terraform-format.enable = true;
+                tflint.enable = true;
+                yamllint.enable = true;
+                ansible-lint.enable = true;
+                nixfmt.enable = true;
+                statix.enable = true;
+                deadnix.enable = true;
+                typos.enable = true;
+                actionlint.enable = true;
+                zizmor.enable = true;
+                convco.enable = true;
+              };
+            };
           };
-          rawConfig = {
-            repos = [
-              {
-                "repo" = "https://github.com/antonbabenko/pre-commit-terraform";
-                "rev" = "v1.96.2";
-                "hooks" = [
-                  {
-                    "id" = "terraform_docs";
-                    "name" = "Terraform docs";
-                    "require_serial" = true;
 
-                  }
-                ];
-              }
-            ];
+          devShells.default = pkgs.mkShell {
+            inherit (devtools) env;
+            packages = devtools.packages ++ config.pre-commit.settings.enabledPackages;
+            shellHook = config.pre-commit.installationScript;
           };
+
+          formatter = pkgs.nixfmt;
         };
-      });
-
-      devShells = forEachSystem (system: {
-        default =
-          let
-            pkgs = nixpkgs.legacyPackages.${system};
-            inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
-          in
-          pkgs.mkShell {
-            inherit shellHook;
-            buildInputs = [
-              pkgs.python313
-              pkgs.opentofu
-              pkgs.azure-cli
-              pkgs.terraform-docs
-              pkgs.tflint
-            ]
-            ++ enabledPackages;
-          };
-      });
     };
 }
