@@ -10,29 +10,9 @@
 
   flake.modules.nixos.ptxe-hme-lt-01 = {
     imports = [
-      config.flake.modules.nixos.unfree
-      inputs.disko.nixosModules.disko
-      config.flake.modules.nixos.unstable
+      config.flake.modules.nixos.workstation
       ./_hardware-configuration.nix
       ./_disk-config.nix
-      config.flake.modules.nixos.ptxe-hme-lt-01-local-packages
-      config.flake.modules.nixos.yubikey
-      config.flake.modules.nixos.networking
-      config.flake.modules.nixos.timezone
-      config.flake.modules.nixos.bootloader
-      config.flake.modules.nixos.audio
-      config.flake.modules.nixos.zsh
-      config.flake.modules.nixos.nix
-      config.flake.modules.nixos.nh
-      config.flake.modules.nixos.i18n
-      config.flake.modules.nixos.zen
-      config.flake.modules.nixos.home-manager
-      config.flake.modules.nixos.env
-      config.flake.modules.nixos.nix-ld
-      config.flake.modules.nixos.firewall
-      config.flake.modules.nixos.storage-optimization
-      config.flake.modules.nixos.desktop
-      config.flake.modules.nixos.gaming
       config.flake.modules.nixos.colemak
     ];
 
