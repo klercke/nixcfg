@@ -40,6 +40,7 @@
         chromium
         darktable
         gimp
+        inkscape
         kdePackages.kleopatra
         obs-studio
         obsidian
