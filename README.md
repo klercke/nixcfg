@@ -23,7 +23,7 @@ The [flake templates](./flake-templates/), however, may be useful as a starting 
 - **Desktop:** [Hyprland](https://hypr.land), [Noctalia](https://github.com/noctalia-dev/noctalia) shell, [noctalia-greeter](https://github.com/noctalia-dev/noctalia-greeter) on [greetd](https://sr.ht/~kennylevinsen/greetd/), [Umbriel](https://github.com/noctalia-dev/umbriel) (evaluating)
 - **Theming:** [Stylix](https://github.com/nix-community/stylix), with some manual overrides
 - **Terminal:** [Ghostty](https://ghostty.org/), [zsh](https://www.zsh.org/), [Starship](https://starship.rs/)
-- **Editor:** [Neovim](https://neovim.io/) via [nixvim](https://github.com/nix-community/nixvim)
+- **Editor:** [Neovim](https://neovim.io/) configured in `nvim/` so I can use it on non-Nix machines
 - **Nix interface:** [nh (Nix Helper)](https://github.com/nix-community/nh)
 
 ## Shell tools
@@ -48,7 +48,7 @@ Modules define `flake.modules.nixos.<name>` or `flake.modules.homeManager.<name>
 ├── flake-templates/       project templates and portable dev shells
 └── modules/
     ├── desktop/           Hyprland, Noctalia, Stylix, Firefox, Ghostty, Thunderbird
-    ├── dev/               git, GPG, direnv, nixvim, OpenCode, LaTeX, devshell helper
+    ├── dev/               git, GPG, direnv, neovim, OpenCode, LaTeX, devshell helper
     ├── flake/             systems, checks, formatter, devShells, templates
     ├── gaming/            Steam, Lutris, Heroic, Wine, Elite Dangerous, sim controllers
     ├── hardware/          amdgpu, audio, zram, udev rules for radios and keyboards
@@ -75,7 +75,7 @@ Update inputs:
 nix flake update
 ```
 
-Run the pre-commit checks (nixfmt, deadnix, statix):
+Run the pre-commit checks (nixfmt, deadnix, statix, stylua):
 
 ```sh
 nix flake check
@@ -99,7 +99,7 @@ Both are built from the template's `nix/devtools.nix`, so the tool list lives in
 | --- | --- |
 | `rust` | toolchain from `rust-toolchain.toml` (rustup in the portable shell), cargo-nextest, cargo-deny, cargo-watch, cargo-edit, taplo |
 | `go` | go, gopls, gotools, delve, golangci-lint |
-| `python` | python3, uv, ruff |
+| `python` | python3, uv, ruff, basedpyright |
 | `iac` | OpenTofu, tflint, terraform-ls, Ansible, ansible-lint, yamllint, check-jsonschema, sops, age, just |
 | `web` | Hugo, Zola, dart-sass, taplo, just |
 
@@ -138,7 +138,7 @@ nix develop github:klercke/nixcfg#go
 
 ## Future Plans
 - [x] Migrate to dendritic pattern
-- [  ] Add CI pipeline (for fun!)
+- [ ] Add CI pipeline (for fun!)
   - [ ] flake check
   - [ ] nixfmt
   - [ ] flake-checker
@@ -150,7 +150,7 @@ nix develop github:klercke/nixcfg#go
   - [ ] automatic flake updates w/ renovate or similar?
   - [ ] list flake tree in readme automatically?
 - [ ] Add server configurations
-- [ ] Try NVF instead of NixVim
+- [x] Switch to normal neovim config instead of NixVim
 - [ ] Add support for multiple users per host?
 - [x] Move any user packages from nixos configuration to home-manager
 - [ ] After NixOS 26.11: move Stylix to its NixOS module once its release branch supports noctalia

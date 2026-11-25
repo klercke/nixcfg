@@ -11,6 +11,7 @@ in
     python
     pkgs.uv
     pkgs.ruff
+    pkgs.basedpyright
   ];
 
   env = {

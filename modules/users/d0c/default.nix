@@ -32,7 +32,7 @@
         config.flake.modules.homeManager.direnv
         config.flake.modules.homeManager.devshell
         config.flake.modules.homeManager.delta
-        config.flake.modules.homeManager.nixvim
+        config.flake.modules.homeManager.neovim
         config.flake.modules.homeManager.latex
         config.flake.modules.homeManager.opencode
         config.flake.modules.homeManager.d0c-email

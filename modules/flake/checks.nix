@@ -12,6 +12,7 @@
           nixfmt.enable = true;
           deadnix.enable = true;
           statix.enable = true;
+          stylua.enable = true;
           # Stable flake-checker doesn't support 26.05 yet
           #flake-checker.enable = true;
         };
