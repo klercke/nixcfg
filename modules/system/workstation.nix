@@ -34,6 +34,7 @@
         config.flake.modules.nixos.rootless-docker
         config.flake.modules.nixos.desktop
         config.flake.modules.nixos.gaming
+        config.flake.modules.nixos.netbird
       ];
 
       environment.systemPackages = [
