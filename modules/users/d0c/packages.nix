@@ -60,6 +60,7 @@
         openssl
         psmisc
         sops
+        tokei
 
         # Gaming
         prismlauncher
